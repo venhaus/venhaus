@@ -1,0 +1,98 @@
+body {
+	padding-top: 50px;
+}
+
+.h1-font {
+  font-family: sans-serif;
+}
+
+.mynavbar-button {
+	background-color: orange;
+}
+
+.dark-border {
+  border-left: solid 1px;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
+  border-color: darkgray;
+}
+
+.color-border {
+  border-left: solid 1px;
+  border-right: solid 1px;
+  border-color: orange;
+}
+
+.color-background {
+  background-color: rgb(249, 213, 164);
+}
+
+.mynavbar-text {
+	color: white;
+}
+
+.white-text {
+	color: white;
+}
+
+.orange-text {
+  color: darkorange;
+}
+
+.title-font {
+	font-family: 'Monoton', cursive;
+}
+
+.heading {
+  margin-bottom: 30px;
+}
+
+.hr-div {
+  width: 100%;
+  border-bottom: 2px solid orange;
+  height: 26px;
+  text-align: center;
+}
+
+.hr-div-deco {
+  font-size: 35px;
+  padding: 10px;
+  color: orange;
+}
+
+#main {
+	background-color: lightgray;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+#aboutMe {
+  padding: 20px;
+}
+
+#portfolio {
+  padding: 20px;
+  background-color: lightgray;
+}
+
+#contact {
+  padding: 20px;
+}
+
+#header {
+	background-color: orange;
+}
+
+#footer {
+  background-color: white;
+}
+
+#socialMedia {
+  background-color: white;
+  padding-top: 15px;
+}
+
+#title {
+	font-size: 3em;
+	color: white;
+}
