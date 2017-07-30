@@ -96,3 +96,10 @@ body {
 	font-size: 3em;
 	color: white;
 }
+
+/* Style for sm sized devices */
+@media (max-width: 991px) and (min-width: 768px) {
+  #aboutMe-img {
+    padding-top: 10%;
+  }
+}
