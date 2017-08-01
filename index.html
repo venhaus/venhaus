@@ -115,7 +115,7 @@
       <div class="row">
          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 
-          <form class="form-group">
+          <form class="form-group" action="message.php" method="post">
             <label for="firstname">First Name:</label>
             <input class="form-control" type="text" id="firstname" placeholder="First Name" required/><br/>
             <label for="lastname">Last Name:</label>
@@ -123,7 +123,7 @@
             <label for="email">Email-Address:</label>
             <input class="form-control" type="text" id="email" placeholder="E-Mail" required/><br/>
             <label for="message">Your Message:</label>
-            <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+            <textarea class="form-control" id="message" name ="message" rows="4" placeholder="Your Message" required></textarea>
             <br/>
             <button class="btn btn-default" type="submit">Submit</button>
           </form>
