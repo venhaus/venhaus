@@ -175,16 +175,14 @@
   </div>
   <!-- /.container -->
 
-  <script>
-    function studioBraun() { // eslint-disable-line
-      if (prompt("... ist die mit Strom oder Benzin?", "").toLowerCase() == "strombenzin") {
-        window.open("http://www.ven.haus/peer.html");
-      } else {
-        window.open("https://www.youtube.com/watch?v=vNquT-mmdrA");
-      }
-    }
-  </script>
-
+<script>
+   function studioBraun() {
+     if (prompt("... ist die mit Strom oder Benzin?", "").toLowerCase().trim() == "strombenzin") {
+       window.open("http://www.ven.haus/peer.html");
+     } else {
+       window.open("https://www.youtube.com/watch?v=vNquT-mmdrA");
+     }
+  }
+</script>
 </body>
-
 </html>
