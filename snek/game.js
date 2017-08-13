@@ -1,5 +1,4 @@
 // TODO (2) only execute code if canvas is supported by browser
-// TODO (2) option for teleporting borders
 // TODO (2) buttons for manual steering
 // TODO (2) mobile version
 
