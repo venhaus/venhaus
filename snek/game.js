@@ -193,9 +193,9 @@ function swipeDetect(swipeArea, callback) {
 
     e.preventDefault(); // prevent scrolling when inside swipeArea
   });
-
+  /*
   swipeArea.addEventListener('touchend', function(e) {
-    /*
+
     var touchobj = e.changedTouches[0];
     distX = touchobj.pageX - startX; // get horizontal dist traveled by finger while in contact with surface
     distY = touchobj.pageY - startY; // get vertical dist traveled by finger while in contact with surface
@@ -205,9 +205,10 @@ function swipeDetect(swipeArea, callback) {
       swipedir = (distY < 0) ? 'up' : 'down'; // if dist traveled is negative, it indicates up swipe
     }
     callback(swipedir);
-    */
+
     e.preventDefault();
   });
+  */
 }
 
 var swipeArea = document.getElementById('swipeZone');
