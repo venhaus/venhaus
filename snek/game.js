@@ -34,6 +34,7 @@ function initialize() {
   paintContext();
   game();
 }
+
 function Point(x = 0, y = 0) {
   this.x = x;
   this.y = y;
@@ -86,17 +87,17 @@ function paintContext() {
   //Paint Snek eyes
   context.fillStyle = "black";
   if (currentDirection == "down") {
-    context.fillRect(Math.floor(snakeArray[0].x*pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y*pixelHeight + pixelHeight * 0.7), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight *0.1));
-    context.fillRect(Math.floor(snakeArray[0].x*pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y*pixelHeight + pixelHeight * 0.7), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight *0.1));
+    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.7), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight * 0.1));
+    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.7), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight * 0.1));
   } else if (currentDirection == "up") {
-    context.fillRect(Math.floor(snakeArray[0].x*pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y*pixelHeight + pixelHeight * 0.2), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight *0.1));
-    context.fillRect(Math.floor(snakeArray[0].x*pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y*pixelHeight + pixelHeight * 0.2), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight *0.1));
+    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.2), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight * 0.1));
+    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.2), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight * 0.1));
   } else if (currentDirection == "left") {
-    context.fillRect(Math.floor(snakeArray[0].x*pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y*pixelHeight + pixelHeight * 0.2), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight *0.1));
-    context.fillRect(Math.floor(snakeArray[0].x*pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y*pixelHeight + pixelHeight * 0.7), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight *0.1));
+    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.2), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight * 0.1));
+    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.7), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight * 0.1));
   } else if (currentDirection == "right") {
-    context.fillRect(Math.floor(snakeArray[0].x*pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y*pixelHeight + pixelHeight * 0.2), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight *0.1));
-    context.fillRect(Math.floor(snakeArray[0].x*pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y*pixelHeight + pixelHeight * 0.7), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight *0.1));
+    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.2), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight * 0.1));
+    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.7), Math.floor(pixelWidth * 0.1), Math.floor(pixelHeight * 0.1));
   }
 }
 
@@ -163,20 +164,14 @@ function game() {
   }
 } //end game()
 
-// credit: http://www.javascriptkit.com/javatutors/touchevents2.shtml
-function swipedetect(el, callback) {
 
+function swipedetect(el, callback) {
   var touchsurface = el,
     swipedir,
     startX,
     startY,
     distX,
     distY,
-    threshold = 0, //required min distance traveled to be considered swipe
-    restraint = 100, // maximum distance allowed at the same time in perpendicular direction
-    allowedTime = 3000, // maximum time allowed to travel that distance
-    elapsedTime,
-    startTime,
     handleswipe = callback || function(swipedir) {};
 
   touchsurface.addEventListener('touchstart', function(e) {
@@ -184,7 +179,6 @@ function swipedetect(el, callback) {
     var dist = 0;
     startX = touchobj.pageX;
     startY = touchobj.pageY;
-    startTime = new Date().getTime(); // record time when finger first makes contact with surface
     e.preventDefault();
   }, false);
 
@@ -196,24 +190,18 @@ function swipedetect(el, callback) {
     var touchobj = e.changedTouches[0];
     distX = touchobj.pageX - startX; // get horizontal dist traveled by finger while in contact with surface
     distY = touchobj.pageY - startY; // get vertical dist traveled by finger while in contact with surface
-    elapsedTime = new Date().getTime() - startTime; // get time elapsed
-    if (elapsedTime <= allowedTime) { // first condition for awipe met
-      if (Math.abs(distX) > Math.abs(distY)) { // 2nd condition for horizontal swipe met
-        swipedir = (distX < 0) ? 'left' : 'right'; // if dist traveled is negative, it indicates left swipe
-      } else if (Math.abs(distY) > Math.abs(distX)) { // 2nd condition for vertical swipe met
-        swipedir = (distY < 0) ? 'up' : 'down'; // if dist traveled is negative, it indicates up swipe
-      }
+    if (Math.abs(distX) > Math.abs(distY)) { // 2nd condition for horizontal swipe met
+      swipedir = (distX < 0) ? 'left' : 'right'; // if dist traveled is negative, it indicates left swipe
+    } else if (Math.abs(distY) > Math.abs(distX)) { // 2nd condition for vertical swipe met
+      swipedir = (distY < 0) ? 'up' : 'down'; // if dist traveled is negative, it indicates up swipe
     }
     handleswipe(swipedir);
     e.preventDefault();
   }, false);
 }
 
-//USAGE:
-
 var el = document.getElementById('swipeZone');
 swipedetect(el, function(swipedir) {
-  // swipedir contains either "none", "left", "right", "up", or "down"
   currentDirection = swipedir;
 });
 
