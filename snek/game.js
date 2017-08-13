@@ -159,7 +159,7 @@ function game() {
     paintContext();
     window.setTimeout(game, delay);
   } else {
-    alert("You lost! \n Final Score: " + snakeArray.length);
+    alert("You lost! :( \n Final Score: " + snakeArray.length);
     initialize();
   }
 } //end game()
