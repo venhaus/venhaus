@@ -183,7 +183,9 @@ function swipeDetect(swipeArea, callback) {
     var touchobj = e.changedTouches[0];
     distX = touchobj.pageX - startX; // get horizontal dist traveled by finger while in contact with surface
     distY = touchobj.pageY - startY; // get vertical dist traveled by finger while in contact with surface
-
+    if (Math.abs(distX) > 50) {
+      scoreDisplay.innerHTML(distX);
+    }
     if (Math.abs(distX) > 50 && Math.abs(distX) > Math.abs(distY)) { // 2nd condition for horizontal swipe met
       swipedir = (distX < 0) ? 'left' : 'right'; // if dist traveled is negative, it indicates left swipe
     } else if (Math.abs(distY) > 50 && Math.abs(distY) > Math.abs(distX)) { // 2nd condition for vertical swipe met
