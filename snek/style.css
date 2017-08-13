@@ -1,3 +1,10 @@
 #gameCanvas {
   border: 2px solid black;
 }
+
+#swipezone {
+  color: white;
+  background-color: black;
+  height: 200px;
+  width: 200px;
+}
