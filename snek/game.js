@@ -107,6 +107,7 @@ function setGameSize() {
   gameCanvas.setAttribute("height", gameHeight + "px");
   gameCanvas.setAttribute("width", gameWidth + "px");
   paintContext();
+  
 }
 
 function game() {
