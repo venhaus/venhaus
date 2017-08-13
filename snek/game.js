@@ -1,6 +1,8 @@
 // TODO (2) only execute code if canvas is supported by browser
 // TODO (2) restart button
 // TODO (2) option for teleporting borders
+// TODO (2) buttons for manual steering
+// TODO (2) mobile version
 
 // TODO (3) remove console logs
 
@@ -17,8 +19,15 @@ var pixelWidth = gameWidth / horizontalPixels;
 var applePos;
 var snakeArray = [];
 var gameLost = false;
-var delay = 300;
+var initialdelay = 300;
+var delay;
 
+function initialize() {
+  delay = initialdelay;
+  snakeArray[0] = rndPoint();
+  setApplePos();
+  window.setTimeout(game, delay);
+}
 function Point(x = 0, y = 0) {
   this.x = x;
   this.y = y;
@@ -138,7 +147,4 @@ document.addEventListener("keydown", move);
 gameCanvas.setAttribute("height", gameHeight + "px");
 gameCanvas.setAttribute("width", gameWidth + "px");
 
-//Initialize
-snakeArray[0] = rndPoint();
-setApplePos();
-window.setTimeout(game, delay);
+initialize();
