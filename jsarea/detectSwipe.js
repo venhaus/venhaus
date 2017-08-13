@@ -49,5 +49,5 @@ function swipedetect(el, callback) {
 var el = document.getElementById('swipezone');
 swipedetect(el, function(swipedir) {
   // swipedir contains either "none", "left", "right", "top", or "down"
-  el.innerHTML = 'Swiped <span style="color:yellow">' + swipedir + '</span>';
+  el.innerHTML = 'Swiped' + swipedir;
 });
