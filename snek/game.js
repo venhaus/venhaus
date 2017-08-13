@@ -210,7 +210,7 @@ function swipedetect(el, callback) {
 
 //USAGE:
 
-var el = document.getElementById('gameCanvas');
+var el = document.getElementById('swipeZone');
 swipedetect(el, function(swipedir) {
   // swipedir contains either "none", "left", "right", "top", or "down"
   currentDirection = swipedir;
