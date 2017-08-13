@@ -165,28 +165,37 @@ function game() {
 } //end game()
 
 
-function swipedetect(el, callback) {
-  var touchsurface = el,
-    swipedir,
+function swipeDetect(swipeArea, callback) {
+  var swipedir,
     startX,
     startY,
     distX,
-    distY,
-    handleswipe = callback || function(swipedir) {};
+    distY;
 
-  touchsurface.addEventListener('touchstart', function(e) {
-    var touchobj = e.changedTouches[0]
-    var dist = 0;
+  swipeArea.addEventListener('touchstart', function(e) {
+    var touchobj = e.changedTouches[0];
     startX = touchobj.pageX;
     startY = touchobj.pageY;
     e.preventDefault();
-  }, false);
+  });
 
-  touchsurface.addEventListener('touchmove', function(e) {
-    e.preventDefault(); // prevent scrolling when inside DIV
-  }, false);
+  swipeArea.addEventListener('touchmove', function(e) {
+    var touchobj = e.changedTouches[0];
+    distX = touchobj.pageX - startX; // get horizontal dist traveled by finger while in contact with surface
+    distY = touchobj.pageY - startY; // get vertical dist traveled by finger while in contact with surface
 
-  touchsurface.addEventListener('touchend', function(e) {
+    if (Math.abs(distX) > 50 && Math.abs(distX) > Math.abs(distY)) { // 2nd condition for horizontal swipe met
+      swipedir = (distX < 0) ? 'left' : 'right'; // if dist traveled is negative, it indicates left swipe
+    } else if (Math.abs(distY) > 50 && Math.abs(distY) > Math.abs(distX)) { // 2nd condition for vertical swipe met
+      swipedir = (distY < 0) ? 'up' : 'down'; // if dist traveled is negative, it indicates up swipe
+    }
+    callback(swipedir);
+
+    e.preventDefault(); // prevent scrolling when inside swipeArea
+  });
+
+  swipeArea.addEventListener('touchend', function(e) {
+    /*
     var touchobj = e.changedTouches[0];
     distX = touchobj.pageX - startX; // get horizontal dist traveled by finger while in contact with surface
     distY = touchobj.pageY - startY; // get vertical dist traveled by finger while in contact with surface
@@ -195,16 +204,16 @@ function swipedetect(el, callback) {
     } else if (Math.abs(distY) > Math.abs(distX)) { // 2nd condition for vertical swipe met
       swipedir = (distY < 0) ? 'up' : 'down'; // if dist traveled is negative, it indicates up swipe
     }
-    handleswipe(swipedir);
+    callback(swipedir);
+    */
     e.preventDefault();
-  }, false);
+  });
 }
 
-var el = document.getElementById('swipeZone');
-swipedetect(el, function(swipedir) {
+var swipeArea = document.getElementById('swipeZone');
+swipeDetect(swipeArea, function(swipedir) {
   currentDirection = swipedir;
 });
-
 
 document.addEventListener("keydown", move);
 gameCanvas.setAttribute("height", gameHeight + "px");
