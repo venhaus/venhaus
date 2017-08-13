@@ -74,10 +74,7 @@ function game() {
   //If Snek touches apple...
   if (snakeArray[0].x == applePos.x && snakeArray[0].y == applePos.y) {
     snakeArray.push(snakeArray[snakeArray.length - 1]);
-    do {
-      applePos = rndPoint();
-    }
-    while ();
+    applePos = rndPoint();
     console.log(snakeArray.length);
 
   }
@@ -95,4 +92,4 @@ gameCanvas.setAttribute("width", gameWidth + "px");
 applePos = rndPoint();
 snakeArray[0] = rndPoint();
 
-window.setInterval(game, 100);
+window.setInterval(game, 300);
