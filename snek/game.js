@@ -1,17 +1,17 @@
 // TODO (2) only execute code if canvas is supported by browser
-// TODO (2) restart button
 // TODO (2) option for teleporting borders
 // TODO (2) buttons for manual steering
 // TODO (2) mobile version
 
+// TODO (3) set delay
 // TODO (3) remove console logs
 
 var currentDirection;
 var previousDirection;
 var gameCanvas = document.getElementById("gameCanvas");
 var context = gameCanvas.getContext("2d");
-var gameHeight = 400;
-var gameWidth = 400;
+var gameHeight = Math.min(window.innerHeight, window.innerWidth) * 0.8;
+var gameWidth = gameHeight;
 var verticalPixels = 10;
 var horizontalPixels = 10;
 var pixelHeight = gameHeight / verticalPixels;
@@ -19,14 +19,20 @@ var pixelWidth = gameWidth / horizontalPixels;
 var applePos;
 var snakeArray = [];
 var gameLost = false;
-var initialdelay = 300;
 var delay;
+var scoreDisplay = document.getElementById("scoreDisplay");
 
 function initialize() {
-  delay = initialdelay;
+  console.log("Initialize");
+  delay = 300;
+  gameLost = false;
+  currentDirection = null;
+  previousDirection = null;
+  snakeArray = [];
   snakeArray[0] = rndPoint();
   setApplePos();
-  window.setTimeout(game, delay);
+  paintContext();
+  game();
 }
 function Point(x = 0, y = 0) {
   this.x = x;
@@ -69,11 +75,11 @@ function move(event) {
 }
 
 function paintContext() {
-  context.fillStyle = "white";
+  context.fillStyle = "black";
   context.fillRect(0, 0, gameWidth, gameHeight);
   context.fillStyle = "red";
   context.fillRect(Math.floor(applePos.x * pixelWidth + pixelWidth * 0.02), Math.floor(applePos.y * pixelHeight + pixelWidth * 0.02), Math.floor(pixelWidth * 0.96), Math.floor(pixelHeight * 0.96));
-  context.fillStyle = "green";
+  context.fillStyle = "lime";
   for (let index in snakeArray) {
     context.fillRect(Math.floor(snakeArray[index].x * pixelWidth + pixelWidth * 0.02), Math.floor(snakeArray[index].y * pixelHeight + pixelWidth * 0.02), Math.floor(pixelWidth * 0.96), Math.floor(pixelHeight * 0.96));
   }
@@ -94,8 +100,19 @@ function paintContext() {
   }
 }
 
+function setGameSize() {
+  gameHeight = Math.min(window.innerHeight, window.innerWidth) * 0.7;
+  gameWidth = gameHeight;
+  pixelHeight = gameHeight / verticalPixels;
+  pixelWidth = gameWidth / horizontalPixels;
+  gameCanvas.setAttribute("height", gameHeight + "px");
+  gameCanvas.setAttribute("width", gameWidth + "px");
+  paintContext();
+}
+
 function game() {
   //Move Snek tail
+  console.log("game");
   for (let i = snakeArray.length - 1; i > 0; i--) {
     snakeArray[i] = new Point(snakeArray[i - 1].x, snakeArray[i - 1].y);
   }
@@ -123,7 +140,6 @@ function game() {
     for (let index in snakeSubArray) {
       if (snakeArray[0].equals(snakeSubArray[index])) {
         gameLost = true;
-        alert("You lost! \n Final Score: " + snakeArray.length);
       }
     }
   }
@@ -131,6 +147,7 @@ function game() {
   //If Snek touches apple...
   if (snakeArray[0].x == applePos.x && snakeArray[0].y == applePos.y) {
     snakeArray.push(new Point().imitate(snakeArray[snakeArray.length - 1]));
+    scoreDisplay.innerHTML = "Score: " + snakeArray.length;
     setApplePos();
     delay = delay * 0.95;
   }
@@ -139,12 +156,14 @@ function game() {
   if (!gameLost) {
     paintContext();
     window.setTimeout(game, delay);
+  } else {
+    alert("You lost! \n Final Score: " + snakeArray.length);
+    initialize();
   }
 } //end game()
 
 document.addEventListener("keydown", move);
-
 gameCanvas.setAttribute("height", gameHeight + "px");
 gameCanvas.setAttribute("width", gameWidth + "px");
-
+window.addEventListener("resize", setGameSize);
 initialize();

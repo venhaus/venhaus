@@ -2,14 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Snek!</title>
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   </head>
   <body>
-    <canvas id="gameCanvas">
-      <!-- TODO insert fallback content -->
-    </canvas>
-    <button onclick="initialize();">Reset</button>
+    <div class="container">
+      <h1 class="text-center"><strong>Snek!</strong></h1>
+      <div class="text-center">
+        <canvas id="gameCanvas">
+          <!-- TODO insert fallback content -->
+        </canvas>
+      </div>
+      <h2 id="scoreDisplay" class="text-center">Score: 1</h2>
+    </div>
     <script src="game.js" charset="utf-8"></script>
   </body>
 </html>
