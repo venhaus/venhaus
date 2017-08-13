@@ -212,7 +212,7 @@ function swipedetect(el, callback) {
 
 var el = document.getElementById('swipeZone');
 swipedetect(el, function(swipedir) {
-  // swipedir contains either "none", "left", "right", "top", or "down"
+  // swipedir contains either "none", "left", "right", "up", or "down"
   currentDirection = swipedir;
 });
 
