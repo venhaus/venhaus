@@ -159,7 +159,7 @@ function game() {
     paintContext();
     window.setTimeout(game, delay);
   } else {
-    alert("You lost! :) \n Final Score: " + snakeArray.length);
+    alert("You lost! \n Final Score: " + snakeArray.length);
     initialize();
   }
 } //end game()
@@ -185,8 +185,12 @@ function swipeDetect(swipeArea, callback) {
     distY = touchobj.pageY - startY; // get vertical dist traveled by finger while in contact with surface
     if (Math.abs(distX) > 50 && Math.abs(distX) > Math.abs(distY)) { // 2nd condition for horizontal swipe met
       swipedir = (distX < 0) ? 'left' : 'right'; // if dist traveled is negative, it indicates left swipe
+      startX = touchobj.pageX;
+      startY = touchobj.pageY;
     } else if (Math.abs(distY) > 50 && Math.abs(distY) > Math.abs(distX)) { // 2nd condition for vertical swipe met
       swipedir = (distY < 0) ? 'up' : 'down'; // if dist traveled is negative, it indicates up swipe
+      startX = touchobj.pageX;
+      startY = touchobj.pageY;
     }
     callback(swipedir);
 
