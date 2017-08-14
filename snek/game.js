@@ -1,6 +1,13 @@
-// TODO (2) larger game area on mobile
+/* TODO Highscores:
+ * When game is not running, scoreDisplay becomes clickable >Highscores<
+ * Upon clicking, the game canvas is replaced with a super sexy top 5 highscore board
+ * When highscores are displayed, scoreDisplay becomes a close button >Close<
 
-// TODO (3) remove console logs
+ * When a game ends, snakeArray.length is written into scoreArray
+ * snakeArray is sorted descendingly
+ * when scoreDisplay is clicked, canvas becomes black and displays the top 5 items from scoreArray
+ * when scoreDisplay is clicked again, the canvas shows the normal game again
+*/
 
 var currentDirection;
 var previousDirection;
@@ -21,12 +28,15 @@ var snakeArray = [];
 var gameLost = false;
 var delay;
 var scoreDisplay = document.getElementById("scoreDisplay");
+var scoreArray = [];
 var swipeArea = document.body;
+var highscoreFlag = false;
+var gameIsRunning = false;
 
 function initialize() {
   delay = 300;
   gameLost = false;
-  scoreDisplay.innerHTML = "Score: 1";
+  scoreDisplay.innerHTML = "Highscores";
   currentDirection = null;
   previousDirection = null;
   snakeArray = [];
@@ -34,7 +44,6 @@ function initialize() {
   setApplePos();
   setGameSize();
   paintContext();
-  game();
 }
 
 function Point(x = 0, y = 0) {
@@ -66,6 +75,10 @@ function setApplePos() {
 }
 
 function move(event) {
+  if (gameIsRunning == false && (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40)) {
+    game();
+    scoreDisplay.innerHTML = "Score: 1";
+  }
   if (event.keyCode == 37) {
     currentDirection = "left";
   } else if (event.keyCode == 38) {
@@ -159,7 +172,13 @@ swipeDetect(swipeArea, function(swipedir) {
   currentDirection = swipedir;
 });
 
+function showHighscores() {
+  highscoreFlag = true;
+  scoreDisplay.innerHTML = "Close";
+}
+
 function game() {
+  gameIsRunning = true;
   //Move Snek tail
   for (let i = snakeArray.length - 1; i > 0; i--) {
     snakeArray[i] = new Point(snakeArray[i - 1].x, snakeArray[i - 1].y);
@@ -205,7 +224,9 @@ function game() {
     paintContext();
     window.setTimeout(game, delay);
   } else {
+    scoreArray.push(snakeArray.length);
     alert("You lost! \n Final Score: " + snakeArray.length);
+    gameIsRunning = false;
     initialize();
   }
 } //end game()
@@ -215,6 +236,8 @@ if (gameCanvas.getContext("2d")){
   context = gameCanvas.getContext("2d");
   gameCanvas.setAttribute("height", gameHeight + "px");
   gameCanvas.setAttribute("width", gameWidth + "px");
+  scoreDisplay.addEventListener("onclick", showHighscores());
   window.addEventListener("resize", setGameSize);
+
   initialize();
 }
