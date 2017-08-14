@@ -172,9 +172,18 @@ swipeDetect(swipeArea, function(swipedir) {
   currentDirection = swipedir;
 });
 
-function showHighscores() {
-  highscoreFlag = true;
-  scoreDisplay.innerHTML = "Close";
+function toggleHighscores() {
+  // FIXME
+  if (highscoreFlag == false){
+    highscoreFlag = true;
+    scoreDisplay.innerHTML = "Close";
+    context.fillStyle = "black";
+    context.fillRect(0, 0, gameWidth, gameHeight);
+  } else {
+    highscoreFlag = false;
+    scoreDisplay.innerHTML = "Highscores";
+    paintContext();
+  }
 }
 
 function game() {
@@ -236,7 +245,7 @@ if (gameCanvas.getContext("2d")){
   context = gameCanvas.getContext("2d");
   gameCanvas.setAttribute("height", gameHeight + "px");
   gameCanvas.setAttribute("width", gameWidth + "px");
-  scoreDisplay.addEventListener("onclick", showHighscores());
+  scoreDisplay.addEventListener("click", toggleHighscores);
   window.addEventListener("resize", setGameSize);
 
   initialize();
