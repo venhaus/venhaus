@@ -75,6 +75,7 @@ function move(event) {
   } else if (event.keyCode == 40) {
     currentDirection = "down";
   }
+  event.preventDefault();
 }
 
 function paintContext() {
@@ -104,7 +105,11 @@ function paintContext() {
 }
 
 function setGameSize() {
-  gameHeight = Math.min(window.innerHeight, window.innerWidth) * 0.75;
+  if (window.innerWidth / window.innerHeight < 1) {
+    gameHeight = Math.min(window.innerHeight, window.innerWidth) * 0.95;
+  } else {
+    gameHeight = Math.min(window.innerHeight, window.innerWidth) * 0.75;
+  }
   gameWidth = gameHeight;
   pixelHeight = gameHeight / verticalPixels;
   pixelWidth = gameWidth / horizontalPixels;
