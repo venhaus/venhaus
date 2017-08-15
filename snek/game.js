@@ -138,7 +138,7 @@ function setGameSize() {
   paintContext();
 }
 
-function swipeHandle(swipeArea, callback, type) {
+function swipeHandle(swipeArea, type, callback) {
   var swipedir,
     startX,
     startY,
@@ -190,12 +190,16 @@ function toggleHighscores() {
     gameCanvas.style.zIndex = 1;
     highscoreDisplay.style.zIndex = 2;
     document.removeEventListener("keydown", move);
+    swipeHandle(swipeArea, "remove");
   } else {
     highscoreFlag = false;
     scoreDisplay.innerHTML = ">Highscores<";
     gameCanvas.style.zIndex = 2;
     highscoreDisplay.style.zIndex = 1;
     document.addEventListener("keydown", move);
+    swipeHandle(swipeArea, "add", function(swipedir) {
+      currentDirection = swipedir;
+    });
   }
 }
 
@@ -274,9 +278,9 @@ function game() {
 
 if (gameCanvas.getContext("2d")){
   document.addEventListener("keydown", move);
-  swipeHandle(swipeArea, function(swipedir) {
+  swipeHandle(swipeArea, "add", function(swipedir) {
     currentDirection = swipedir;
-  }, "add");
+  });
   context = gameCanvas.getContext("2d");
   gameCanvas.setAttribute("height", gameHeight + "px");
   gameCanvas.setAttribute("width", gameWidth + "px");
