@@ -1,7 +1,3 @@
-// TODO game can't start when highscoreDisplay is shown on touch devices
-// TODO ^ remove touchevent listeners from swipeArea when highscoreDisplay is being shown
-
-
 var currentDirection;
 var previousDirection;
 var gameCanvas = document.getElementById("gameCanvas");
@@ -27,9 +23,7 @@ var scoreArray = [];
 var swipeArea = document.getElementById("mainDiv");
 var highscoreFlag = false;
 var gameIsRunning = false;
-
-var swipedir,
-  startX,
+var startX,
   startY,
   distX,
   distY;
@@ -68,7 +62,6 @@ function rndPoint() {
 
 function setApplePos() {
   applePos = rndPoint();
-  //var appleFlag = false;
   for (let index in snakeArray) {
     if (snakeArray[index].equals(applePos)) {
       setApplePos();
@@ -218,7 +211,6 @@ function compareScores(scoreA, scoreB) {
 function game() {
   gameIsRunning = true;
   scoreDisplay.removeEventListener("click", toggleHighscores);
-  //scoreDisplay.removeEventListener("touchstart", toggleHighscores);
   //Move Snek tail
   for (let i = snakeArray.length - 1; i > 0; i--) {
     snakeArray[i] = new Point(snakeArray[i - 1].x, snakeArray[i - 1].y);
@@ -268,7 +260,6 @@ function game() {
     alert("You lost! \n Final Score: " + (snakeArray.length - 1));
     gameIsRunning = false;
     scoreDisplay.addEventListener("click", toggleHighscores);
-    //scoreDisplay.addEventListener("touchstart", toggleHighscores);
     initialize();
 
   }
@@ -281,11 +272,9 @@ if (gameCanvas.getContext("2d")){
   gameCanvas.setAttribute("height", gameHeight + "px");
   gameCanvas.setAttribute("width", gameWidth + "px");
   scoreDisplay.addEventListener("click", toggleHighscores);
-  //scoreDisplay.addEventListener("touchstart", toggleHighscores);
   window.addEventListener("resize", setGameSize);
   for (let i = 0; i<5; i++) {
     scoreArray[i] = 0;
   }
-
   initialize();
 }
