@@ -71,7 +71,7 @@ function setApplePos() {
 }
 
 function move(event) {
-  if (gameIsRunning == false && (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40)) {
+  if (gameIsRunning == false && (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40 || event.type == "touchstart")) {
     game();
     scoreDisplay.innerHTML = "Score: 0";
   }
@@ -171,7 +171,6 @@ function swipeDetect(swipeArea, callback) {
 }
 
 function toggleHighscores() {
-  // FIXME
   if (highscoreFlag == false){
     highscoreFlag = true;
     scoreDisplay.innerHTML = ">Close<";
