@@ -1,4 +1,5 @@
-// TODO: game can't start when highscoreDisplay is shown
+// TODO game can't start when highscoreDisplay is shown on touch devices
+// TODO ^ remove touchevent listeners from swipeArea when highscoreDisplay is being shown
 
 
 var currentDirection;
@@ -138,6 +139,43 @@ function setGameSize() {
 }
 
 function swipeDetect(swipeArea, callback) {
+  var swipedir,
+    startX,
+    startY,
+    distX,
+    distY;
+
+  swipeArea.addEventListener('touchstart', function(e) {
+    var touchobj = e.changedTouches[0];
+    startX = touchobj.pageX;
+    startY = touchobj.pageY;
+    if (gameIsRunning == false) {
+      game();
+      scoreDisplay.innerHTML = "Score: 0";
+    }
+    e.preventDefault();
+  });
+
+  swipeArea.addEventListener('touchmove', function(e) {
+    var touchobj = e.changedTouches[0];
+    distX = touchobj.pageX - startX; // get horizontal dist traveled by finger while in contact with surface
+    distY = touchobj.pageY - startY; // get vertical dist traveled by finger while in contact with surface
+    if (Math.abs(distX) > 25 && Math.abs(distX) > Math.abs(distY)) { // 2nd condition for horizontal swipe met
+      swipedir = (distX < 0) ? 'left' : 'right'; // if dist traveled is negative, it indicates left swipe
+      startX = touchobj.pageX;
+      startY = touchobj.pageY;
+    } else if (Math.abs(distY) > 25 && Math.abs(distY) > Math.abs(distX)) { // 2nd condition for vertical swipe met
+      swipedir = (distY < 0) ? 'up' : 'down'; // if dist traveled is negative, it indicates up swipe
+      startX = touchobj.pageX;
+      startY = touchobj.pageY;
+    }
+    callback(swipedir);
+
+    e.preventDefault(); // prevent scrolling when inside swipeArea
+  });
+}
+
+function swipeDetectRemove(swipeArea) {
   var swipedir,
     startX,
     startY,
