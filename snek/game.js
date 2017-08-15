@@ -1,17 +1,11 @@
-/* TODO Highscores:
- * When game is not running, scoreDisplay becomes clickable >Highscores<
- * Upon clicking, the game canvas is replaced with a super sexy top 5 highscore board
- * When highscores are displayed, scoreDisplay becomes a close button >Close<
+// TODO: game can't start when highscoreDisplay is shown
 
- * When a game ends, snakeArray.length is written into scoreArray
- * snakeArray is sorted descendingly
- * when scoreDisplay is clicked, canvas becomes black and displays the top 5 items from scoreArray
- * when scoreDisplay is clicked again, the canvas shows the normal game again
-*/
 
 var currentDirection;
 var previousDirection;
 var gameCanvas = document.getElementById("gameCanvas");
+var mainDiv = document.getElementById("mainDiv");
+var highscoreDisplay = document.getElementById("highscoreDisplay");
 var context;
 var gameHeight;
 var gameWidth;
@@ -36,7 +30,7 @@ var gameIsRunning = false;
 function initialize() {
   delay = 300;
   gameLost = false;
-  scoreDisplay.innerHTML = "Highscores";
+  scoreDisplay.innerHTML = ">Highscores<";
   currentDirection = null;
   previousDirection = null;
   snakeArray = [];
@@ -44,6 +38,8 @@ function initialize() {
   setApplePos();
   setGameSize();
   paintContext();
+  scoreArray.sort(compareScores);
+  updateHighscores();
 }
 
 function Point(x = 0, y = 0) {
@@ -77,7 +73,7 @@ function setApplePos() {
 function move(event) {
   if (gameIsRunning == false && (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40)) {
     game();
-    scoreDisplay.innerHTML = "Score: 1";
+    scoreDisplay.innerHTML = "Score: 0";
   }
   if (event.keyCode == 37) {
     currentDirection = "left";
@@ -132,6 +128,12 @@ function setGameSize() {
   pixelWidthEyes = Math.floor(pixelWidth * 0.1);
   gameCanvas.setAttribute("height", gameHeight + "px");
   gameCanvas.setAttribute("width", gameWidth + "px");
+  mainDiv.style.height = gameHeight + "px";
+  mainDiv.style.width = gameWidth + "px";
+  highscoreDisplay.style.height = gameHeight + "px";
+  highscoreDisplay.style.width = gameHeight + "px";
+  highscoreDisplay.style.fontSize = gameHeight/15 + "px";
+  highscoreDisplay.style.paddingTop = gameHeight/8 + "px";
   paintContext();
 }
 
@@ -176,18 +178,36 @@ function toggleHighscores() {
   // FIXME
   if (highscoreFlag == false){
     highscoreFlag = true;
-    scoreDisplay.innerHTML = "Close";
-    context.fillStyle = "black";
-    context.fillRect(0, 0, gameWidth, gameHeight);
+    scoreDisplay.innerHTML = ">Close<";
+    gameCanvas.style.zIndex = 1;
+    highscoreDisplay.style.zIndex = 2;
+    document.removeEventListener("keydown", move);
   } else {
     highscoreFlag = false;
-    scoreDisplay.innerHTML = "Highscores";
-    paintContext();
+    scoreDisplay.innerHTML = ">Highscores<";
+    gameCanvas.style.zIndex = 2;
+    highscoreDisplay.style.zIndex = 1;
+    document.addEventListener("keydown", move);
   }
+}
+
+function updateHighscores() {
+  let tempHighscores;
+  tempHighscores = "Highscores:\n <p></p>";
+  for (let i = 0; i<5; i++) {
+    tempHighscores += "<p>" + scoreArray[i] + "</p>";
+  }
+  tempHighscores += "</ul>";
+  highscoreDisplay.innerHTML = tempHighscores;
+}
+
+function compareScores(scoreA, scoreB) {
+  return scoreB - scoreA;
 }
 
 function game() {
   gameIsRunning = true;
+  scoreDisplay.removeEventListener("click", toggleHighscores);
   //Move Snek tail
   for (let i = snakeArray.length - 1; i > 0; i--) {
     snakeArray[i] = new Point(snakeArray[i - 1].x, snakeArray[i - 1].y);
@@ -223,7 +243,7 @@ function game() {
   //If Snek touches apple
   if (snakeArray[0].x == applePos.x && snakeArray[0].y == applePos.y) {
     snakeArray.push(new Point().imitate(snakeArray[snakeArray.length - 1]));
-    scoreDisplay.innerHTML = "Score: " + snakeArray.length;
+    scoreDisplay.innerHTML = "Score: " + (snakeArray.length - 1);
     setApplePos();
     delay = delay * 0.95;
   }
@@ -233,10 +253,12 @@ function game() {
     paintContext();
     window.setTimeout(game, delay);
   } else {
-    scoreArray.push(snakeArray.length);
-    alert("You lost! \n Final Score: " + snakeArray.length);
+    scoreArray.push(snakeArray.length - 1);
+    alert("You lost! \n Final Score: " + (snakeArray.length - 1));
     gameIsRunning = false;
+    scoreDisplay.addEventListener("click", toggleHighscores);
     initialize();
+
   }
 } //end game()
 
@@ -247,6 +269,9 @@ if (gameCanvas.getContext("2d")){
   gameCanvas.setAttribute("width", gameWidth + "px");
   scoreDisplay.addEventListener("click", toggleHighscores);
   window.addEventListener("resize", setGameSize);
+  for (let i = 0; i<5; i++) {
+    scoreArray[i] = 0;
+  }
 
   initialize();
 }
