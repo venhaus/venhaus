@@ -272,7 +272,7 @@ if (gameCanvas.getContext("2d")){
   gameCanvas.setAttribute("height", gameHeight + "px");
   gameCanvas.setAttribute("width", gameWidth + "px");
   scoreDisplay.addEventListener("click", toggleHighscores);
-  //scoreDisplay.addEventListener("touchstart", toggleHighscores);
+  scoreDisplay.addEventListener("touchstart", toggleHighscores);
   window.addEventListener("resize", setGameSize);
   for (let i = 0; i<5; i++) {
     scoreArray[i] = 0;
