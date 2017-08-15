@@ -138,6 +138,10 @@ function setGameSize() {
   paintContext();
 }
 
+function gameTouchstart(e) {
+
+}
+
 function swipeDetect(swipeArea, callback) {
   var swipedir,
     startX,
