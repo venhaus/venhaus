@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Stacking</title>
+    <style>
+      #parent {
+        position: absolute;
+        background-color: red;
+        height: 200px;
+        width: 200px;
+        z-index: 1;
+      }
+      #mid {
+        position: relative;
+        color: white;
+        background-color: blue;
+        height: 300px;
+        width: 300px;
+        z-index: 2;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>SPACE</h1>
+    <div id="parent">
+      2
+    </div>
+    <div id="mid">
+      1
+    </div>
+    <button onclick="switchZ();">Change stacking order</button>
+
+    <script>
+      var zFlag = false;
+      function switchZ() {
+        if (zFlag == false) {
+          document.getElementById("parent").style.zIndex= "2";
+          document.getElementById("mid").style.zIndex= "1";
+          zFlag = true;
+        } else {
+          document.getElementById("parent").style.zIndex= "1";
+          document.getElementById("mid").style.zIndex= "2";
+          zFlag = false;
+        }
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,10 +1,11 @@
-// TODO (2) larger game area on mobile
+// TODO: game can't start when highscoreDisplay is shown
 
-// TODO (3) remove console logs
 
 var currentDirection;
 var previousDirection;
 var gameCanvas = document.getElementById("gameCanvas");
+var mainDiv = document.getElementById("mainDiv");
+var highscoreDisplay = document.getElementById("highscoreDisplay");
 var context;
 var gameHeight;
 var gameWidth;
@@ -21,12 +22,15 @@ var snakeArray = [];
 var gameLost = false;
 var delay;
 var scoreDisplay = document.getElementById("scoreDisplay");
+var scoreArray = [];
 var swipeArea = document.body;
+var highscoreFlag = false;
+var gameIsRunning = false;
 
 function initialize() {
   delay = 300;
   gameLost = false;
-  scoreDisplay.innerHTML = "Score: 1";
+  scoreDisplay.innerHTML = ">Highscores<";
   currentDirection = null;
   previousDirection = null;
   snakeArray = [];
@@ -34,7 +38,8 @@ function initialize() {
   setApplePos();
   setGameSize();
   paintContext();
-  game();
+  scoreArray.sort(compareScores);
+  updateHighscores();
 }
 
 function Point(x = 0, y = 0) {
@@ -66,6 +71,10 @@ function setApplePos() {
 }
 
 function move(event) {
+  if (gameIsRunning == false && (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40)) {
+    game();
+    scoreDisplay.innerHTML = "Score: 0";
+  }
   if (event.keyCode == 37) {
     currentDirection = "left";
   } else if (event.keyCode == 38) {
@@ -119,6 +128,12 @@ function setGameSize() {
   pixelWidthEyes = Math.floor(pixelWidth * 0.1);
   gameCanvas.setAttribute("height", gameHeight + "px");
   gameCanvas.setAttribute("width", gameWidth + "px");
+  mainDiv.style.height = gameHeight + "px";
+  mainDiv.style.width = gameWidth + "px";
+  highscoreDisplay.style.height = gameHeight + "px";
+  highscoreDisplay.style.width = gameHeight + "px";
+  highscoreDisplay.style.fontSize = gameHeight/15 + "px";
+  highscoreDisplay.style.paddingTop = gameHeight/8 + "px";
   paintContext();
 }
 
@@ -159,7 +174,40 @@ swipeDetect(swipeArea, function(swipedir) {
   currentDirection = swipedir;
 });
 
+function toggleHighscores() {
+  // FIXME
+  if (highscoreFlag == false){
+    highscoreFlag = true;
+    scoreDisplay.innerHTML = ">Close<";
+    gameCanvas.style.zIndex = 1;
+    highscoreDisplay.style.zIndex = 2;
+    document.removeEventListener("keydown", move);
+  } else {
+    highscoreFlag = false;
+    scoreDisplay.innerHTML = ">Highscores<";
+    gameCanvas.style.zIndex = 2;
+    highscoreDisplay.style.zIndex = 1;
+    document.addEventListener("keydown", move);
+  }
+}
+
+function updateHighscores() {
+  let tempHighscores;
+  tempHighscores = "Highscores:\n <p></p>";
+  for (let i = 0; i<5; i++) {
+    tempHighscores += "<p>" + scoreArray[i] + "</p>";
+  }
+  tempHighscores += "</ul>";
+  highscoreDisplay.innerHTML = tempHighscores;
+}
+
+function compareScores(scoreA, scoreB) {
+  return scoreB - scoreA;
+}
+
 function game() {
+  gameIsRunning = true;
+  scoreDisplay.removeEventListener("click", toggleHighscores);
   //Move Snek tail
   for (let i = snakeArray.length - 1; i > 0; i--) {
     snakeArray[i] = new Point(snakeArray[i - 1].x, snakeArray[i - 1].y);
@@ -195,7 +243,7 @@ function game() {
   //If Snek touches apple
   if (snakeArray[0].x == applePos.x && snakeArray[0].y == applePos.y) {
     snakeArray.push(new Point().imitate(snakeArray[snakeArray.length - 1]));
-    scoreDisplay.innerHTML = "Score: " + snakeArray.length;
+    scoreDisplay.innerHTML = "Score: " + (snakeArray.length - 1);
     setApplePos();
     delay = delay * 0.95;
   }
@@ -205,8 +253,12 @@ function game() {
     paintContext();
     window.setTimeout(game, delay);
   } else {
-    alert("You lost! \n Final Score: " + snakeArray.length);
+    scoreArray.push(snakeArray.length - 1);
+    alert("You lost! \n Final Score: " + (snakeArray.length - 1));
+    gameIsRunning = false;
+    scoreDisplay.addEventListener("click", toggleHighscores);
     initialize();
+
   }
 } //end game()
 
@@ -215,6 +267,11 @@ if (gameCanvas.getContext("2d")){
   context = gameCanvas.getContext("2d");
   gameCanvas.setAttribute("height", gameHeight + "px");
   gameCanvas.setAttribute("width", gameWidth + "px");
+  scoreDisplay.addEventListener("click", toggleHighscores);
   window.addEventListener("resize", setGameSize);
+  for (let i = 0; i<5; i++) {
+    scoreArray[i] = 0;
+  }
+
   initialize();
 }
