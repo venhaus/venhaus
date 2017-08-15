@@ -207,7 +207,7 @@ function compareScores(scoreA, scoreB) {
 function game() {
   gameIsRunning = true;
   scoreDisplay.removeEventListener("click", toggleHighscores);
-  scoreDisplay.removeEventListener("touchstart", toggleHighscores);
+  //scoreDisplay.removeEventListener("touchstart", toggleHighscores);
   //Move Snek tail
   for (let i = snakeArray.length - 1; i > 0; i--) {
     snakeArray[i] = new Point(snakeArray[i - 1].x, snakeArray[i - 1].y);
@@ -257,7 +257,7 @@ function game() {
     alert("You lost! \n Final Score: " + (snakeArray.length - 1));
     gameIsRunning = false;
     scoreDisplay.addEventListener("click", toggleHighscores);
-    scoreDisplay.addEventListener("touchstart", toggleHighscores);
+    //scoreDisplay.addEventListener("touchstart", toggleHighscores);
     initialize();
 
   }
@@ -272,7 +272,7 @@ if (gameCanvas.getContext("2d")){
   gameCanvas.setAttribute("height", gameHeight + "px");
   gameCanvas.setAttribute("width", gameWidth + "px");
   scoreDisplay.addEventListener("click", toggleHighscores);
-  scoreDisplay.addEventListener("touchstart", toggleHighscores);
+  //scoreDisplay.addEventListener("touchstart", toggleHighscores);
   window.addEventListener("resize", setGameSize);
   for (let i = 0; i<5; i++) {
     scoreArray[i] = 0;
