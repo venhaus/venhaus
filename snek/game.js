@@ -71,7 +71,7 @@ function setApplePos() {
 }
 
 function move(event) {
-  if (gameIsRunning == false && (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40 || event.type == "touchstart")) {
+  if (gameIsRunning == false && (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40)) {
     game();
     scoreDisplay.innerHTML = "Score: 0";
   }
@@ -148,6 +148,10 @@ function swipeDetect(swipeArea, callback) {
     var touchobj = e.changedTouches[0];
     startX = touchobj.pageX;
     startY = touchobj.pageY;
+    if (gameIsRunning == false) {
+      game();
+      scoreDisplay.innerHTML = "Score: 0";
+    }
     e.preventDefault();
   });
 
