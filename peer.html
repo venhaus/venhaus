@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Yikes!</title>
+    <style>
+      #pictureFrame {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="peerpics/0.jpg" onclick="changeImg();" id="pictureFrame" alt="Peer. Der Mann, der Mythos."/>
+    <script type="text/javascript">
+    var counter = 0;
+    function changeImg() {
+      if (counter > 15) {
+        counter = 0;
+      }
+      document.getElementById("pictureFrame").src = "peerpics/" + counter + ".jpg";
+      counter++;
+    }
+    </script>
+  </body>
+</html>
