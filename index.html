@@ -2,11 +2,11 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="Portfolio.css">
 
   <title>Paul Venhaus</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="Portfolio.css">
 
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -15,15 +15,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Monoton|Allterta" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Allterta" rel="stylesheet">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 
 
 <body data-spy="scroll" data-target=".navbar" data-offset="100">
 
-  <nav id="header" class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -34,8 +34,7 @@
 				<span class="icon-bar"></span>
       </button>
         <a id="title" class="title-font navbar-brand" href="#">Ven.haus</a>
-      </div>
-      <!-- /.navbar-header -->
+      </div> <!-- /.navbar-header -->
 
       <!-- Collect the nav links for toggling -->
       <div class="collapse navbar-collapse navbar-right" id="navbar">
@@ -44,11 +43,10 @@
           <li class="mynavbar-button"><a href="#portfolio"><strong>Portfolio</strong></a></li>
           <li class="mynavbar-button"><a href="#contact"><strong>Contact</strong></a></li>
         </ul>
-      </div>
-      <!--/collapse navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
+      </div> <!--/collapse navbar-collapse -->
+    </div> <!-- /.container-fluid -->
   </nav>
+
   <!-- main -->
   <div class="container">
     <div id="main">
@@ -150,10 +148,9 @@
         </div>
       </div>
        -->
-      </div>
-      <!-- /#contact -->
+      </div> <!-- /#contact -->
 
-      <div id="footer">
+      <footer>
         <div class="row">
           <div id="socialMedia" class="row col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             <a href="https://www.facebook.com/paul.vnhs"><img class="img-responsive col-xs-2 col-sm-2 col-md-2" src="icons/icon-facebook.png" alt="facebook-icon"/></a>
@@ -162,28 +159,25 @@
             <a href="https://www.linkedin.com/in/paulvenhaus/"><img class="img-responsive col-xs-2 col-sm-2 col-md-2" src="icons/icon-linkedin.png" alt="linkedin-icon"/></a>
             <a href="https://twitter.com/Herminus"><img class="img-responsive col-xs-2 col-sm-2 col-md-2" src="icons/icon-twitter.png" alt="twitter-icon"/></a>
             <a href="https://github.com/Venhaus"><img class="img-responsive col-xs-2 col-sm-2 col-md-2" src="icons/icon-github.png" alt="github-icon"/></a>
-          </div>
-          <!-- /#socialMedia -->
-        </div>
-        <!-- /.row -->
+          </div> <!-- /#socialMedia -->
+        </div> <!-- /.row -->
         <hr class="color-border" />
         <p class="text-center">Made with <span class="glyphicon glyphicon-heart orange-text"></span> by <strong>Paul Venhaus</strong></p>
-      </div>
-      <!-- /#footer -->
+      </footer>
     </div>
     <!-- /#main -->
   </div>
   <!-- /.container -->
 
-<script>
-   function studioBraun() {
-     if (prompt("... ist die mit Strom oder Benzin?", "").toLowerCase().trim() == "strombenzin") {
-       location.href = "http://www.ven.haus/peer.html";
-     } else {
-       window.open("https://www.youtube.com/watch?v=vNquT-mmdrA");
-     }
-   }
-
-</script>
+  <script>
+    function studioBraun() {
+      if (prompt("... ist die mit Strom oder Benzin?", "").toLowerCase().trim() == "strombenzin") {
+        location.href = "http://www.ven.haus/peer.html";
+      } else {
+        window.open("https://www.youtube.com/watch?v=vNquT-mmdrA");
+      }
+    }
+  </script>
 </body>
+
 </html>

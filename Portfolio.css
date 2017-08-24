@@ -1,5 +1,13 @@
 body {
-	padding-top: 50px;
+  padding-top: 50px;
+}
+
+nav {
+  background-color: orange;
+}
+
+footer {
+  background-color: white;
 }
 
 .h1-font {
@@ -7,7 +15,7 @@ body {
 }
 
 .mynavbar-button {
-	background-color: orange;
+  background-color: orange;
 }
 
 .dark-border {
@@ -28,11 +36,15 @@ body {
 }
 
 .mynavbar-text {
-	color: white;
+  color: white;
+}
+
+.navbar-default {
+  background-color: orange;
 }
 
 .white-text {
-	color: white;
+  color: white;
 }
 
 .orange-text {
@@ -40,7 +52,7 @@ body {
 }
 
 .title-font {
-	font-family: 'Monoton', cursive;
+  font-family: 'Monoton', cursive;
 }
 
 .heading {
@@ -61,9 +73,9 @@ body {
 }
 
 #main {
-	background-color: lightgray;
-	margin-left: 5%;
-	margin-right: 5%;
+  background-color: lightgray;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #aboutMe {
@@ -79,25 +91,19 @@ body {
   padding: 20px;
 }
 
-#header {
-	background-color: orange;
-}
-
-#footer {
-  background-color: white;
-}
-
 #socialMedia {
   background-color: white;
   padding-top: 15px;
 }
 
 #title {
-	font-size: 3em;
-	color: white;
+  font-size: 3em;
+  color: white;
 }
 
+
 /* Style for sm sized devices */
+
 @media (max-width: 991px) and (min-width: 768px) {
   #aboutMe-img {
     padding-top: 10%;
