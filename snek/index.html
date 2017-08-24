@@ -5,31 +5,44 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Snek!</title>
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff0000">
+  <meta name="apple-mobile-web-app-title" content="Snek">
+  <meta name="application-name" content="Snek">
+  <meta name="theme-color" content="#ffffff">
 
-  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-
+  <!-- My CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
 
-<body style="background-color: black;">
-  <h1 class="text-center pressStart2P">Snek!</h1>
+<body>
+  <h1 class="text-center">Snek!</h1>
   <div id="mainDiv">
       <canvas id="gameCanvas">
         <strong>Sorry, your browser is not supported.</strong>
       </canvas>
-    <div id="highscoreDisplay" class="text-center pressStart2P">
+    <div id="highscoreDisplay" class="text-center">
       &#8827;Highscores&#8826;
     </div>
   </div>
 
-  <h2 id="scoreDisplay" class="text-center pressStart2P">Highscores</h2>
+  <h2 id="scoreDisplay" class="text-center">Highscores</h2>
 
-  <script src="game.js" charset="utf-8"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="game.js" charset="utf-8"></script>
 </body>
 
 </html>
