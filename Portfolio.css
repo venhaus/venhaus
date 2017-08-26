@@ -51,10 +51,6 @@ footer {
   color: darkorange;
 }
 
-.title-font {
-  font-family: 'Monoton', cursive;
-}
-
 .heading {
   margin-bottom: 30px;
 }
@@ -99,6 +95,7 @@ footer {
 #title {
   font-size: 3em;
   color: white;
+  font-family: 'Monoton', cursive;
 }
 
 
