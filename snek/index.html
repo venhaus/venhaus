@@ -18,9 +18,6 @@
   <meta name="application-name" content="Snek">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <!-- My CSS -->
@@ -28,20 +25,23 @@
 </head>
 
 <body>
-  <h1 class="text-center">Snek!</h1>
+  <h1>Snek!</h1>
   <div id="mainDiv">
       <canvas id="gameCanvas">
         <strong>Sorry, your browser is not supported.</strong>
       </canvas>
-    <div id="highscoreDisplay" class="text-center">
-      &#8827;Highscores&#8826;
+    <div id="highscoreDisplay">
+      <p>Highscores:</p>
+      <p class="score">0</p>
+      <p class="score">0</p>
+      <p class="score">0</p>
+      <p class="score">0</p>
+      <p class="score">0</p>
     </div>
   </div>
 
-  <h2 id="scoreDisplay" class="text-center">Highscores</h2>
+  <h2 id="scoreDisplay">Highscores</h2>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="game.js" charset="utf-8"></script>
 </body>
 

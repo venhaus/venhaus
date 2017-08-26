@@ -9,15 +9,12 @@ body {
   margin: 0px;
   height: 100%;
   width: 100%;
-}
-
-ul {
-  list-style: none;
-}
-
-h1, h2 {
-  font-family: 'Press Start 2P';
   color: white;
+  font-family: 'Press Start 2P';
+}
+
+h1, h2, p {
+  text-align: center;
 }
 
 #mainDiv {
@@ -31,11 +28,9 @@ h1, h2 {
 }
 
 #highscoreDisplay {
-  border-top: 3px solid white;
-  margin: 2.5px;
+  border: 3px solid white;
   position: relative;
   background-color: black;
   color: white;
   z-index: 1;
-  font-size: 1em;
 }

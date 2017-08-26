@@ -133,7 +133,6 @@ function setGameSize() {
   highscoreDisplay.style.height = gameHeight + "px";
   highscoreDisplay.style.width = gameHeight + "px";
   highscoreDisplay.style.fontSize = gameHeight/15 + "px";
-  highscoreDisplay.style.paddingTop = gameHeight/8 + "px";
   paintContext();
 }
 
@@ -195,13 +194,10 @@ function toggleHighscores() {
 }
 
 function updateHighscores() {
-  let tempHighscores;
-  tempHighscores = "Highscores:\n <p></p>";
+  let scores = document.getElementsByClassName("score");
   for (let i = 0; i<5; i++) {
-    tempHighscores += "<p>" + scoreArray[i] + "</p>";
+    scores[i].innerHTML = scoreArray[i];
   }
-  tempHighscores += "</ul>";
-  highscoreDisplay.innerHTML = tempHighscores;
 }
 
 function compareScores(scoreA, scoreB) {
