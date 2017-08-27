@@ -19,16 +19,16 @@ footer {
 }
 
 .dark-border {
-  border-left: solid 1px;
-  border-right: solid 1px;
   border-bottom: solid 1px;
   border-color: darkgray;
+  border-left: solid 1px;
+  border-right: solid 1px;
 }
 
 .color-border {
+  border-color: orange;
   border-left: solid 1px;
   border-right: solid 1px;
-  border-color: orange;
 }
 
 .color-background {
@@ -56,16 +56,16 @@ footer {
 }
 
 .hr-div {
-  width: 100%;
   border-bottom: 2px solid orange;
   height: 26px;
   text-align: center;
+  width: 100%;
 }
 
 .hr-div-deco {
+  color: orange;
   font-size: 35px;
   padding: 10px;
-  color: orange;
 }
 
 #main {
@@ -93,9 +93,9 @@ footer {
 }
 
 #title {
-  font-size: 3em;
   color: white;
   font-family: 'Monoton', cursive;
+  font-size: 3em;
 }
 
 
