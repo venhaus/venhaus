@@ -10,8 +10,6 @@ var verticalPixels = 10;
 var horizontalPixels = 10;
 var pixelHeight;
 var pixelWidth;
-var pixelHeightAdj;
-var pixelWidthAdj;
 var pixelHeightEyes;
 var pixelWidthEyes;
 var applePos;
@@ -91,25 +89,25 @@ function paintContext() {
   context.fillStyle = "black";
   context.fillRect(0, 0, gameWidth, gameHeight);
   context.fillStyle = "red";
-  context.fillRect(Math.floor(applePos.x * pixelWidth + pixelWidth * 0.02), Math.floor(applePos.y * pixelHeight + pixelWidth * 0.02), pixelWidthAdj, pixelHeightAdj);
+  context.fillRect(applePos.x * pixelWidth + pixelWidth * 0.02, applePos.y * pixelHeight + pixelWidth * 0.02, pixelWidth * 0.96, pixelHeight * 0.96);
   context.fillStyle = "lime";
   for (let index in snakeArray) {
-    context.fillRect(Math.floor(snakeArray[index].x * pixelWidth + pixelWidth * 0.02), Math.floor(snakeArray[index].y * pixelHeight + pixelWidth * 0.02), pixelWidthAdj, pixelHeightAdj);
+    context.fillRect(snakeArray[index].x * pixelWidth + pixelWidth * 0.02, snakeArray[index].y * pixelHeight + pixelWidth * 0.02, pixelWidth * 0.96, pixelHeight * 0.96);
   }
   //Paint Snek eyes
   context.fillStyle = "black";
   if (currentDirection == "down") {
-    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.7), pixelWidthEyes, pixelHeightEyes);
-    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.7), pixelWidthEyes, pixelHeightEyes);
+    context.fillRect(snakeArray[0].x * pixelWidth + pixelWidth * 0.2, snakeArray[0].y * pixelHeight + pixelHeight * 0.7, pixelWidthEyes, pixelHeightEyes);
+    context.fillRect(snakeArray[0].x * pixelWidth + pixelWidth * 0.7, snakeArray[0].y * pixelHeight + pixelHeight * 0.7, pixelWidthEyes, pixelHeightEyes);
   } else if (currentDirection == "up") {
-    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.2), pixelWidthEyes, pixelHeightEyes);
-    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.2), pixelWidthEyes, pixelHeightEyes);
+    context.fillRect(snakeArray[0].x * pixelWidth + pixelWidth * 0.2, snakeArray[0].y * pixelHeight + pixelHeight * 0.2, pixelWidthEyes, pixelHeightEyes);
+    context.fillRect(snakeArray[0].x * pixelWidth + pixelWidth * 0.7, snakeArray[0].y * pixelHeight + pixelHeight * 0.2, pixelWidthEyes, pixelHeightEyes);
   } else if (currentDirection == "left") {
-    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.2), pixelWidthEyes, pixelHeightEyes);
-    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.2), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.7), pixelWidthEyes, pixelHeightEyes);
+    context.fillRect(snakeArray[0].x * pixelWidth + pixelWidth * 0.2, snakeArray[0].y * pixelHeight + pixelHeight * 0.2, pixelWidthEyes, pixelHeightEyes);
+    context.fillRect(snakeArray[0].x * pixelWidth + pixelWidth * 0.2, snakeArray[0].y * pixelHeight + pixelHeight * 0.7, pixelWidthEyes, pixelHeightEyes);
   } else if (currentDirection == "right") {
-    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.2), pixelWidthEyes, pixelHeightEyes);
-    context.fillRect(Math.floor(snakeArray[0].x * pixelWidth + pixelWidth * 0.7), Math.floor(snakeArray[0].y * pixelHeight + pixelHeight * 0.7), pixelWidthEyes, pixelHeightEyes);
+    context.fillRect(snakeArray[0].x * pixelWidth + pixelWidth * 0.7, snakeArray[0].y * pixelHeight + pixelHeight * 0.2, pixelWidthEyes, pixelHeightEyes);
+    context.fillRect(snakeArray[0].x * pixelWidth + pixelWidth * 0.7, snakeArray[0].y * pixelHeight + pixelHeight * 0.7, pixelWidthEyes, pixelHeightEyes);
   }
 }
 
@@ -122,8 +120,6 @@ function setGameSize() {
   gameWidth = gameHeight;
   pixelHeight = gameHeight / verticalPixels;
   pixelWidth = gameWidth / horizontalPixels;
-  pixelHeightAdj = Math.floor(pixelHeight * 0.96);
-  pixelWidthAdj = Math.floor(pixelWidth * 0.96);
   pixelHeightEyes = Math.floor(pixelHeight * 0.1);
   pixelWidthEyes = Math.floor(pixelWidth * 0.1);
   gameCanvas.setAttribute("height", gameHeight + "px");
