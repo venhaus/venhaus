@@ -128,7 +128,7 @@ function setGameSize() {
   mainDiv.style.width = gameWidth + "px";
   highscoreDisplay.style.height = gameHeight + "px";
   highscoreDisplay.style.width = gameHeight + "px";
-  highscoreDisplay.style.fontSize = gameHeight/15 + "px";
+  //highscoreDisplay.style.fontSize = gameHeight/15 + "px";
   paintContext();
 }
 
