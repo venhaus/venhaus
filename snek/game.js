@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 var currentDirection;
 var previousDirection;
 var gameCanvas = document.getElementById("gameCanvas");
@@ -69,7 +71,8 @@ function setApplePos() {
 }
 
 function move(event) {
-  if (gameIsRunning == false && (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40)) {
+  if (gameIsRunning == false && (event.keyCode == 37 || event.keyCode == 38 ||
+    event.keyCode == 39 || event.keyCode == 40)) {
     game();
     scoreDisplay.innerHTML = "Score: 0";
   }
@@ -253,7 +256,6 @@ function game() {
     gameIsRunning = false;
     scoreDisplay.addEventListener("click", toggleHighscores);
     initialize();
-
   }
 } //end game()
 
