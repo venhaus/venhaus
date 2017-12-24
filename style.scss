@@ -1,0 +1,44 @@
+html,
+body {
+  height:100%;
+  display: grid;
+}
+
+body {
+  /* The image used */
+    background-image: url("background.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+  font-size: 5em;
+  letter-spacing: 5px;
+  margin: 0;
+}
+
+h1,
+h3 {
+  color: #111;
+}
+
+main {
+  margin: auto;
+}
+
+a {
+  color: black;
+  :hover {
+    color: #EEE;
+  }
+}
+
+.icon-row {
+  margin-top: 5%;
+}

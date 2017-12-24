@@ -1,108 +1,36 @@
+html,
 body {
-  padding-top: 50px;
-}
+  height: 100%;
+  display: grid; }
 
-nav {
-  background-color: orange;
-}
+body {
+  /* The image used */
+  background-image: url("background.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
-footer {
-  background-color: white;
-}
+h1 {
+  font-size: 5em;
+  letter-spacing: 5px;
+  margin: 0; }
 
-.h1-font {
-  font-family: sans-serif;
-}
+h1,
+h3 {
+  color: #111; }
 
-.mynavbar-button {
-  background-color: orange;
-}
+main {
+  margin: auto; }
 
-.dark-border {
-  border-bottom: solid 1px;
-  border-color: darkgray;
-  border-left: solid 1px;
-  border-right: solid 1px;
-}
+a {
+  color: black; }
+  a :hover {
+    color: #EEE; }
 
-.color-border {
-  border-color: orange;
-  border-left: solid 1px;
-  border-right: solid 1px;
-}
+.icon-row {
+  margin-top: 5%; }
 
-.color-background {
-  background-color: rgb(249, 213, 164);
-}
-
-.mynavbar-text {
-  color: white;
-}
-
-.navbar-default {
-  background-color: orange;
-}
-
-.white-text {
-  color: white;
-}
-
-.orange-text {
-  color: darkorange;
-}
-
-.heading {
-  margin-bottom: 30px;
-}
-
-.hr-div {
-  border-bottom: 2px solid orange;
-  height: 26px;
-  text-align: center;
-  width: 100%;
-}
-
-.hr-div-deco {
-  color: orange;
-  font-size: 35px;
-  padding: 10px;
-}
-
-#main {
-  background-color: lightgray;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-#aboutMe {
-  padding: 20px;
-}
-
-#portfolio {
-  padding: 20px;
-  background-color: lightgray;
-}
-
-#contact {
-  padding: 20px;
-}
-
-#socialMedia {
-  background-color: white;
-  padding-top: 15px;
-}
-
-#title {
-  color: white;
-  font-family: 'Monoton', cursive;
-  font-size: 3em;
-}
-
-
-/* Style for sm sized devices */
-
-@media (max-width: 991px) and (min-width: 768px) {
-  #aboutMe-img {
-    padding-top: 10%;
-  }
-}
+/*# sourceMappingURL=style.css.map */
