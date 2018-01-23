@@ -9,10 +9,9 @@ var TxtRotate = function(el, toRotate, period) {
 };
 
 TxtRotate.prototype.tick = function() {
-    if (window.screen.availWidth.valueOf() < 800) {
+    if (window.innerWidth.valueOf() < 800) {
         this.el.innerHTML = "Paul Venhaus";
         var that = this;
-        console.log("Ping");
     } else {
         var i = this.loopNum % this.toRotate.length;
         var fullTxt = this.toRotate[i];
@@ -46,20 +45,16 @@ TxtRotate.prototype.tick = function() {
 
 window.onload = function() {
     var elements = document.getElementsByClassName('txt-rotate');
-    //if (window.screen.availWidth.valueOf() > 800) {
-        for (var i = 0; i < elements.length; i++) {
-            var toRotate = elements[i].getAttribute('data-rotate');
-            var period = elements[i].getAttribute('data-period');
-            if (toRotate) {
-                new TxtRotate(elements[i], JSON.parse(toRotate), period);
-            }
+    for (var i = 0; i < elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-rotate');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+            new TxtRotate(elements[i], JSON.parse(toRotate), period);
         }
-        // INJECT CSS
-        var css = document.createElement("style");
-        css.type = "text/css";
-        css.innerHTML = ".wrap { border-right: 0.1em solid #555 }";
-        document.body.appendChild(css);
-    //} else {
-        //elements[0].innerHTML = "Paul Venhaus";
-    //}
+    }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".wrap { border-right: 0.1em solid #555 }";
+    document.body.appendChild(css);
 };
