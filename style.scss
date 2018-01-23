@@ -5,18 +5,11 @@ body {
 }
 
 body {
-  /* The image used */
-    background-image: url("background.jpg");
-
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    overflow: hidden;
+  /* Full height */
+  height: 100%;
+  background: url("background.jpg") no-repeat center;
+  background-size: cover;
+  overflow: hidden;
 }
 
 h1 {
