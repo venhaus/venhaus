@@ -1,34 +1,42 @@
 html,
 body {
   height: 100%;
-  display: grid; }
+  display: grid;
+}
 
 body {
   /* Full height */
   height: 100%;
   background: url("background.jpg") no-repeat center;
   background-size: cover;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 h1 {
   font-size: 5em;
   letter-spacing: 5px;
-  margin: 0; }
+  margin: 0;
+}
 
 h1,
 h3 {
-  font-family: 'Roboto', sans-serif;
-  color: #111; }
+  font-family: "Roboto", sans-serif;
+  color: #111;
+}
 
 main {
-  margin: auto; }
+  margin: auto;
+}
 
 a {
-  color: black; }
-  a :hover {
-    color: #EEE; }
+  color: black;
+}
+a :hover {
+  color: #EEE;
+}
 
 .icon-row {
-  margin-top: 5%; }
+  margin-top: 2%;
+}
 
 /*# sourceMappingURL=style.css.map */
