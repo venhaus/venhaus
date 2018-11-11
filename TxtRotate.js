@@ -1,3 +1,9 @@
+/*
+ * Adapted from "Simple Typing Carousel" by JTho2g on codepen.io.
+ * https://codepen.io/JTHO/pen/vgLzj
+ * 
+*/
+
 var TxtRotate = function(el, toRotate, period) {
     this.toRotate = toRotate;
     this.el = el;
