@@ -16,7 +16,7 @@ var TxtRotate = function(el, toRotate, period) {
 
 TxtRotate.prototype.tick = function() {
     if (window.innerWidth.valueOf() < 800) {
-        this.el.innerHTML = "Paul Venhaus";
+        this.el.innerHTML = "Paul Venhaus.";
         var that = this;
     } else {
         var i = this.loopNum % this.toRotate.length;
