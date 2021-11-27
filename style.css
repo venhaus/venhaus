@@ -44,7 +44,8 @@ h1, h2, p {
 }
 
 p {
-  line-height: 1.2em;
+  line-height: 1.5em;
+  margin: 0;
 }
 
 a {
@@ -85,8 +86,8 @@ main {
 }
 
 .subtitle {
+  margin-top: 0.2em;
   margin-bottom: 2em;
-  line-height: 1em;
 }
 
 .icon-row {
@@ -175,10 +176,6 @@ button:hover {
   main {
     top: 200px;
     margin: 0 25px;
-  }
-
-  .subtitle {
-    line-height: 1em;
   }
 }
 @media (max-width: 550px) {
