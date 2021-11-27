@@ -15,7 +15,7 @@ var TxtRotate = function(el, toRotate, period) {
 };
 
 TxtRotate.prototype.tick = function() {
-    if (window.innerWidth.valueOf() < 800) {
+    if (window.innerWidth.valueOf() < 1000) {
         this.el.innerHTML = "Paul Venhaus.";
         var that = this;
     } else {
@@ -61,6 +61,6 @@ window.onload = function() {
     // INJECT CSS
     var css = document.createElement("style");
     css.type = "text/css";
-    css.innerHTML = ".wrap { border-right: 0.1em solid #555 }";
+    css.innerHTML = ".wrap { border-right: 0.08em solid #D99066 }";
     document.body.appendChild(css);
 };
