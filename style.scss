@@ -10,8 +10,7 @@
 html,
 body {
   height:100%;
-  width: 100%;
-  display: grid;
+  margin: 0;
 }
 
 body {
@@ -78,7 +77,7 @@ main {
   display: none;
 
   img {
-    height: 50em;
+    height: 45em;
     width: auto;
     position: absolute;
     bottom: 0;
@@ -146,7 +145,7 @@ button {
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1320px) {
   .top-triangle {
     height: 30vh;
     width: 100vw;

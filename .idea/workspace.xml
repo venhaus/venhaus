@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/portrait.png" afterDir="false" />
+    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Remove bootstrap (and minor polish)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/background.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style.css.map" afterDir="false" />
@@ -138,8 +136,16 @@
       <workItem from="1516734842167" duration="79000" />
       <workItem from="1516734939323" duration="35000" />
       <workItem from="1583495704499" duration="466000" />
-      <workItem from="1637956928912" duration="8729000" />
+      <workItem from="1637956928912" duration="9068000" />
     </task>
+    <task id="LOCAL-00001" summary="Implement somewhat responsive redesign (still dependent on bootstrap)">
+      <created>1638030331043</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638030331043</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,5 +161,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implement somewhat responsive redesign" />
+    <MESSAGE value="Implement somewhat responsive redesign (still dependent on bootstrap)" />
+    <MESSAGE value="Remove bootstrap (and minor polish)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove bootstrap (and minor polish)" />
   </component>
 </project>
