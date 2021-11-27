@@ -1,45 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/portrait.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/background.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/PaulVenhaus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-facebook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-facebook.pxm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-github.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-google.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-google.pxm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-instagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-instagram.pxm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-linkedin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-linkedin.pxm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-twitter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-twitter.pxm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-youtube.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/icons/icon-youtube.pxm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/peerpics/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/portfolio/Facebook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/portfolio/Google.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/portfolio/Wikipedia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +31,13 @@
   <component name="KonanWorkspace">
     <executables />
   </component>
+  <component name="KubernetesApiPersistence">
+    <option name="context" value="arn:aws:eks:eu-central-1:814405898611:cluster/nw-unicorn-junior" />
+    <option name="namespace" value="default" />
+  </component>
   <component name="ProjectId" id="1Yknx5YfV4eq6F3xQjhAyzOjSF4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -70,8 +45,19 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -80,12 +66,6 @@
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
@@ -107,6 +87,12 @@
       <setting name="fixLineNumbers" value="false" />
       <module name="" />
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
@@ -134,6 +120,7 @@
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -151,16 +138,22 @@
       <workItem from="1516734842167" duration="79000" />
       <workItem from="1516734939323" duration="35000" />
       <workItem from="1583495704499" duration="466000" />
+      <workItem from="1637956928912" duration="8729000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="582" y="55" key="CommitChangelistDialog2" timestamp="1583496249469">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="582" y="55" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1583496249469" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
