@@ -217,5 +217,35 @@ button:hover {
     top: -22vh;
   }
 }
+@media (max-width: 400px) {
+  h1 {
+    font-size: 50pt;
+  }
+
+  h2 {
+    font-size: 25pt;
+  }
+
+  p, button {
+    font-size: 16px;
+  }
+}
+@media (max-width: 320px) {
+  main {
+    top: 120px;
+  }
+
+  h1 {
+    font-size: 40pt;
+  }
+
+  h2 {
+    font-size: 20pt;
+  }
+
+  p, button {
+    font-size: 14px;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
