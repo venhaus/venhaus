@@ -23,10 +23,14 @@ h1, h2 {
 }
 
 h1 {
-  font-weight: bold;
   font-size: 80pt;
   margin: 0;
   line-height: 1em;
+}
+
+.wrap {
+  border-right: 0.08em solid var(--accent-color);
+  display: inline-block;
 }
 
 h2 {
@@ -179,6 +183,10 @@ button:hover {
   }
 }
 @media (max-width: 550px) {
+  main {
+    top: 150px;
+  }
+
   h1 {
     font-weight: bold;
     font-size: 60pt;

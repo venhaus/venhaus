@@ -28,6 +28,10 @@ TxtRotate.prototype.tick = function() {
             this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
 
+        if (this.txt.length === 0) {
+            this.txt = "&#8203;";
+        }
+
         this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
 
         var that = this;
@@ -38,7 +42,8 @@ TxtRotate.prototype.tick = function() {
         if (!this.isDeleting && this.txt === fullTxt) {
             delta = this.period;
             this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
+        } else if (this.isDeleting && this.txt === '&#8203;') {
+            this.txt = '';
             this.isDeleting = false;
             this.loopNum++;
             delta = 500;
@@ -58,9 +63,4 @@ window.onload = function() {
             new TxtRotate(elements[i], JSON.parse(toRotate), period);
         }
     }
-    // INJECT CSS
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML = ".wrap { border-right: 0.08em solid #D99066 }";
-    document.body.appendChild(css);
 };

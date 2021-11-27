@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Add back text-rotate">
+    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Fix caret height">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +156,28 @@
       <option name="project" value="LOCAL" />
       <updated>1638031582821</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fix text spacing">
+      <created>1638032611715</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1638032611715</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fix text spacing">
+      <created>1638032632487</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1638032632487</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fix caret height">
+      <created>1638035139860</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1638035139860</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +200,8 @@
     <MESSAGE value="Implement somewhat responsive redesign (still dependent on bootstrap)" />
     <MESSAGE value="Remove bootstrap (and minor polish)" />
     <MESSAGE value="Add back text-rotate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add back text-rotate" />
+    <MESSAGE value="Fix text spacing" />
+    <MESSAGE value="Fix caret height" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix caret height" />
   </component>
 </project>
