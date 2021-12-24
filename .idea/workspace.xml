@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Add a bunch of media queries">
+    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Use svg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
@@ -47,6 +47,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="TF_FMT" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -148,7 +149,7 @@
       <workItem from="1638189785905" duration="29000" />
       <workItem from="1638372168637" duration="1452000" />
       <workItem from="1640106123593" duration="5320000" />
-      <workItem from="1640359184173" duration="340000" />
+      <workItem from="1640359184173" duration="2923000" />
     </task>
     <task id="LOCAL-00001" summary="Implement somewhat responsive redesign (still dependent on bootstrap)">
       <created>1638030331043</created>
@@ -192,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638035420203</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Use svg">
+      <created>1640362992415</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1640362992416</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +224,7 @@
     <MESSAGE value="Add back text-rotate" />
     <MESSAGE value="Fix text spacing" />
     <MESSAGE value="Fix caret height" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix caret height" />
+    <MESSAGE value="Use svg" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use svg" />
   </component>
 </project>
