@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Fix caret height">
+    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Add a bunch of media queries">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style.scss" afterDir="false" />
@@ -36,6 +37,9 @@
   <component name="KubernetesApiPersistence">
     <option name="context" value="arn:aws:eks:eu-central-1:814405898611:cluster/nw-unicorn-junior" />
     <option name="namespace" value="default" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1Yknx5YfV4eq6F3xQjhAyzOjSF4" />
   <component name="ProjectViewState">
@@ -141,6 +145,10 @@
       <workItem from="1516734939323" duration="35000" />
       <workItem from="1583495704499" duration="466000" />
       <workItem from="1637956928912" duration="9068000" />
+      <workItem from="1638189785905" duration="29000" />
+      <workItem from="1638372168637" duration="1452000" />
+      <workItem from="1640106123593" duration="5320000" />
+      <workItem from="1640359184173" duration="340000" />
     </task>
     <task id="LOCAL-00001" summary="Implement somewhat responsive redesign (still dependent on bootstrap)">
       <created>1638030331043</created>
@@ -200,7 +208,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implement somewhat responsive redesign" />

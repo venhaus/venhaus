@@ -14,34 +14,42 @@
 </head>
 
 <body>
-    <div class="top-triangle"></div>
-    <div class="bottom-triangle"></div>
-    <div class="main-background">
-        <main>
-            <div>
-                <div>
-                    <h2>Hi, I'm</h2>
-                    <h1><span class="txt-rotate" data-period="3000"
-                              data-rotate='["Paul&nbsp;Venhaus.",
+    <div class="content">
+      <svg class="top-triangle-container" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon class="triangle" points="0,0 0,100 100,0"></polygon>
+      </svg>
+      <svg class="bottom-triangle-container" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon class="triangle" points="100,100 100,0 0,100"></polygon>
+      </svg>
+      <svg class="main-background-container" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon class="main-background" points="0,0 0,100 95,100, 100,0"></polygon>
+      </svg>
+      <main>
+        <div>
+          <div>
+            <h2>Hi, I'm</h2>
+            <h1><span class="txt-rotate" data-period="3000"
+                      data-rotate='["Paul&nbsp;Venhaus.",
                                     "a&nbsp;nerd.",
                                     "Batman.",
                                     "secretly&nbsp;a&nbsp;robot.",
                                     "fueled&nbsp;by&nbsp;mate.",
                                     "10100111001."]'>Paul Venhaus.</span></h1>
-                </div>
-            </div>
-            <div>
-                <p class="subtitle">Consultant Developer at <span class="thoughtworks"><span class="tw-dash">/</span>thoughtworks</span><p>
-                <p>Full-Stack Software Engineer and IT Consultant</p>
-                <p>M.Sc. Computer Science, B.Sc. International Business</p>
-            </div>
-            <div class="button-container">
-                <a href="mailto:paul@ven.haus"><button>E-Mail</button></a>
-                <a href="https://www.linkedin.com/in/paulvenhaus/"><button>LinkedIn</button></a>
-                <a href="CV_Paul_Venhaus.pdf"><button>Download CV</button></a>
-            </div>
-        </main>
+          </div>
+        </div>
+        <div>
+          <p class="subtitle">Consultant Developer at <span class="thoughtworks"><span class="tw-dash">/</span>thoughtworks</span><p>
+          <p>Full-Stack Software Engineer and IT Consultant</p>
+          <p>M.Sc. Computer Science, B.Sc. International Business</p>
+        </div>
+        <div class="button-container">
+          <a href="mailto:paul@ven.haus"><button>E-Mail</button></a>
+          <a href="https://www.linkedin.com/in/paulvenhaus/"><button>LinkedIn</button></a>
+          <a href="CV_Paul_Venhaus.pdf"><button>Download CV</button></a>
+        </div>
+      </main>
     </div>
+
     <div class="side-portrait">
         <img src="portrait.png" alt="Portrait of Paul Venhaus" />
     </div>
