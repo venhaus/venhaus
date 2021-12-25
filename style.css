@@ -5,6 +5,7 @@
   --profile-background-color: #262626;
   --accent-color: #D99066;
   --accent-second-color: #D8E3F2;
+  --sidebar-ratio: 33.5%;
 }
 
 .background {
@@ -15,36 +16,37 @@
   display: flex;
 }
 
-.background-left {
-  background-color: var(--accent-color);
-  height: 100%;
-  width: 100%;
-}
-
 .background-right {
   background-color: var(--profile-background-color);
-  height: 100%;
   width: 40%;
   display: none;
+}
+
+.background-left {
+  background-color: var(--accent-color);
+  width: 100%;
 }
 
 html,
 body {
   height: 100%;
-  margin: 0;
 }
 
 body {
-  overflow: hidden;
   background-color: var(--background-color);
+  margin: 0;
 }
 
 h1, h2 {
   font-family: "Outfit", sans-serif;
 }
 
+h1, h2, p {
+  color: var(--main-color);
+}
+
 h1 {
-  font-size: 6em;
+  font-size: 10vmin;
   margin: 0;
   line-height: 1em;
 }
@@ -55,17 +57,8 @@ h1 {
 }
 
 h2 {
-  font-size: 40pt;
+  font-size: 5.5vmin;
   margin: 0;
-}
-
-p, button {
-  font-family: "Titillium Web", sans-serif;
-  font-size: 24px;
-}
-
-h1, h2, p {
-  color: var(--main-color);
 }
 
 p {
@@ -73,20 +66,23 @@ p {
   margin: 0;
 }
 
-a {
-  color: black;
+p, button {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 2.5vmin;
 }
-a :hover {
-  color: #EEE;
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 main {
-  margin: 0 100px;
+  margin: 0 5vw;
   position: fixed;
   z-index: 3;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   justify-content: center;
 }
 
@@ -95,16 +91,16 @@ main {
   height: 100%;
 }
 
-.main-background {
-  fill: var(--background-color);
-  box-shadow: 0 0 40px 0 black;
-}
-
 .main-background-container {
   height: 100%;
   width: 100%;
   position: fixed;
   z-index: 2;
+}
+
+.main-background {
+  fill: var(--background-color);
+  box-shadow: 0 0 40px 0 black;
 }
 
 .main-background-small {
@@ -116,8 +112,8 @@ main {
 }
 
 .side-portrait {
-  width: 100%;
   height: 100%;
+  width: var(--sidebar-ratio);
   right: 0;
   top: 0;
   position: fixed;
@@ -126,15 +122,11 @@ main {
 }
 .side-portrait img {
   height: 70%;
-  width: auto;
-  position: absolute;
-  bottom: 0;
-  right: 4%;
 }
 
 .subtitle {
-  margin-top: 0.2em;
-  margin-bottom: 2em;
+  margin-top: 1.5vh;
+  margin-bottom: 3vh;
 }
 
 .icon-row {
@@ -151,17 +143,17 @@ main {
 
 .button-container {
   display: flex;
-  width: 450px;
+  width: 50vw;
+  margin-top: 3vh;
   justify-content: space-between;
-  margin-top: 25px;
 }
 
 button {
-  height: 50px;
+  height: 5vh;
   background-color: var(--accent-color);
-  border-radius: 15px;
+  border-radius: 1vmax;
   border: none;
-  padding: 0 20px;
+  padding: 0 2vw;
   color: var(--accent-second-color);
   white-space: nowrap;
 }
@@ -169,9 +161,11 @@ button:hover {
   background-color: var(--main-color);
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 125vh) {
   .side-portrait {
-    display: block;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
   }
 
   .main-background-large {
@@ -197,61 +191,32 @@ button:hover {
   .background-right {
     display: block;
   }
-}
-@media (max-width: 850px) {
-  main {
-    margin: 0 25px;
+
+  .button-container {
+    width: 35vw;
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 80vh) {
+  main {
+    margin: 0 4vw;
+    width: 92%;
+  }
+}
+@media (max-width: 60vh) {
   h1 {
-    font-weight: bold;
-    font-size: 60pt;
-    margin: 0;
-    line-height: 1em;
+    font-size: 20vmin;
   }
 
   h2 {
-    font-size: 30pt;
+    font-size: 12vmin;
   }
 
   p, button {
-    font-size: 18px;
-  }
-
-  button {
-    padding: 0 10px;
+    font-size: 5vmin;
   }
 
   .button-container {
     width: 100%;
-    max-width: 350px;
-  }
-}
-@media (max-width: 400px) {
-  h1 {
-    font-size: 50pt;
-  }
-
-  h2 {
-    font-size: 25pt;
-  }
-
-  p, button {
-    font-size: 16px;
-  }
-}
-@media (max-width: 320px) {
-  h1 {
-    font-size: 40pt;
-  }
-
-  h2 {
-    font-size: 20pt;
-  }
-
-  p, button {
-    font-size: 14px;
   }
 }
 
