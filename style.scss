@@ -9,9 +9,6 @@
   --sidebar-ratio: 33.5%;
 }
 
-// todo: make desktop size default and use media queries for mobile
-//  current way is confusing
-
 .background {
   position: fixed;
   z-index: 0;
@@ -23,12 +20,12 @@
 .background-right {
   background-color: var(--profile-background-color);
   width: 40%;
-  display: none;
+  display: block;
 }
 
 .background-left {
   background-color: var(--accent-color);
-  width: 100%;
+  width: 60%;
 }
 
 html,
@@ -91,13 +88,13 @@ main {
 }
 
 .content {
-  width: 100%;
+  width: 70%;
   height: 100%;
 }
 
 .main-background-container {
   height: 100%;
-  width: 100%;
+  width: 70%;
   position: fixed;
   z-index: 2;
 }
@@ -108,11 +105,11 @@ main {
 }
 
 .main-background-small {
-  display: block;
+  display: none;
 }
 
 .main-background-large {
-  display: none;
+  display: block;
 }
 
 .side-portrait {
@@ -122,7 +119,9 @@ main {
   top: 0;
   position: fixed;
   z-index: 0;
-  display: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 
   img {
     height: 70%;
@@ -148,7 +147,7 @@ main {
 
 .button-container {
   display: flex;
-  width: 50vw;
+  width: 35vw;
   margin-top: 3vh;
   justify-content: space-between;
 }
@@ -167,32 +166,32 @@ button {
   }
 }
 
-@media (min-width: 125vh) {
+@media (max-width: 125vh) {
   .side-portrait {
-    display: flex;
+    display: none;
     align-items: flex-end;
     justify-content: center;
   }
   .main-background-large {
-    display: block;
-  }
-  .main-background-small {
     display: none;
   }
-  .content {
-    width: 70%;
-  }
-  .main-background-container {
-    width: 70%;
-  }
-  .background-left {
-    width: 60%;
-  }
-  .background-right {
+  .main-background-small {
     display: block;
   }
+  .content {
+    width: 100%;
+  }
+  .main-background-container {
+    width: 100%;
+  }
+  .background-left {
+    width: 100%;
+  }
+  .background-right {
+    display: none;
+  }
   .button-container {
-    width: 35vw;
+    width: 50vw;
   }
 }
 
