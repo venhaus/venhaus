@@ -97,11 +97,11 @@ main {
   width: 70%;
   position: fixed;
   z-index: 2;
+  filter: drop-shadow( 0 0 2vmin hsla(0, 0%, 0%, 0.25));
 }
 
 .main-background {
   fill: var(--background-color);
-  box-shadow: 0 0 40px 0 black;
 }
 
 .main-background-small {
@@ -124,7 +124,7 @@ main {
   justify-content: center;
 
   img {
-    height: 70%;
+    height: 75%;
   }
 }
 
@@ -204,13 +204,13 @@ button {
 
 @media (max-width: 60vh) {
   h1 {
-    font-size: 20vmin;
+    font-size: 18vmin;
   }
   h2 {
-    font-size: 12vmin;
+    font-size: 10vmin;
   }
   p, button {
-    font-size: 5vmin;
+    font-size: 4vmin;
   }
   .button-container {
     width: 100%;
