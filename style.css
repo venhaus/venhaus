@@ -33,7 +33,7 @@ body {
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: var(--profile-background-color);
   margin: 0;
 }
 
