@@ -87,6 +87,10 @@ main {
   justify-content: center;
 }
 
+.header {
+  margin-bottom: 1vmin;
+}
+
 .content {
   width: 70%;
   height: 100%;
@@ -128,27 +132,14 @@ main {
   }
 }
 
-.subtitle {
-  margin-top: 1.5vh;
-  margin-bottom: 3vh;
-}
-
 .icon-row {
   margin-top: 2%;
-}
-
-.tw-dash {
-  color: var(--tw-color);
-}
-
-.thoughtworks {
-  font-weight: bolder;
 }
 
 .button-container {
   display: flex;
   width: 35vw;
-  margin-top: 3vh;
+  margin-top: 2vmin;
   justify-content: space-between;
 }
 
@@ -213,7 +204,7 @@ button {
     font-size: 4vmin;
   }
   .button-container {
-    width: 100%;
+    width: 80%;
   }
 }
 
