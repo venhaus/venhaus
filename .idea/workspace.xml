@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Flip full-size / responsive css">
-      <change beforePath="$PROJECT_DIR$/.idea/venhaus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/venhaus.iml" afterDir="false" />
+    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Make portrait smaller, remove sass, improve link display">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portrait.png" beforeDir="false" afterPath="$PROJECT_DIR$/portrait.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.scss" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +27,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="KonanWorkspace">
     <executables />
@@ -50,6 +46,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -149,7 +146,7 @@
       <workItem from="1640359184173" duration="9247000" />
       <workItem from="1640529234691" duration="58000" />
       <workItem from="1640698998349" duration="1490000" />
-      <workItem from="1659220154672" duration="3523000" />
+      <workItem from="1659220154672" duration="4851000" />
     </task>
     <task id="LOCAL-00001" summary="Implement somewhat responsive redesign (still dependent on bootstrap)">
       <created>1638030331043</created>
@@ -221,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640516169745</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Make portrait smaller, remove sass, improve link display">
+      <created>1659223992794</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1659223992794</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +253,8 @@
     <MESSAGE value="Use svg but different. NEEDS REFACTORING." />
     <MESSAGE value="Make large screen friendly" />
     <MESSAGE value="Flip full-size / responsive css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Flip full-size / responsive css" />
+    <MESSAGE value="Make portrait smaller, remove sass, improve link display" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make portrait smaller, remove sass, improve link display" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

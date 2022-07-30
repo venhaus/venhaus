@@ -73,6 +73,7 @@ p, a {
 a {
   --a-text-height: 5vh;
   text-decoration: none;
+  text-align: center;
   height: var(--a-text-height);
   line-height: var(--a-text-height);
   background-color: var(--accent-color);
@@ -148,10 +149,11 @@ main {
 }
 
 .link-container {
-  display: flex;
-  width: 35vw;
+  display: grid;
+  column-gap: 3vw;
+  grid-template-columns: repeat(3, 1fr);
+  width: min-content;
   margin-top: 2vmin;
-  justify-content: space-between;
 }
 
 @media (max-width: 125vh) {
