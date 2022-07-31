@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Make portrait smaller, remove sass, improve link display">
+    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Nicer handling of link spacing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
@@ -146,7 +146,7 @@
       <workItem from="1640359184173" duration="9247000" />
       <workItem from="1640529234691" duration="58000" />
       <workItem from="1640698998349" duration="1490000" />
-      <workItem from="1659220154672" duration="4851000" />
+      <workItem from="1659220154672" duration="5348000" />
     </task>
     <task id="LOCAL-00001" summary="Implement somewhat responsive redesign (still dependent on bootstrap)">
       <created>1638030331043</created>
@@ -225,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659223992794</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Nicer handling of link spacing">
+      <created>1659225128798</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1659225128798</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +261,8 @@
     <MESSAGE value="Make large screen friendly" />
     <MESSAGE value="Flip full-size / responsive css" />
     <MESSAGE value="Make portrait smaller, remove sass, improve link display" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make portrait smaller, remove sass, improve link display" />
+    <MESSAGE value="Nicer handling of link spacing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nicer handling of link spacing" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

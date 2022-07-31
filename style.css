@@ -71,15 +71,15 @@ p, a {
 }
 
 a {
-  --a-text-height: 5vh;
+  --a-text-height: 2em;
   text-decoration: none;
   text-align: center;
   height: var(--a-text-height);
   line-height: var(--a-text-height);
   background-color: var(--accent-color);
-  border-radius: 1vmax;
+  border-radius: 0.5em;
   border: none;
-  padding: 0 2vw;
+  padding: 0 1em;
   color: var(--accent-second-color);
   white-space: nowrap;
   transition: background-color 150ms ease;
@@ -150,10 +150,10 @@ main {
 
 .link-container {
   display: grid;
-  column-gap: 3vw;
+  column-gap: 2em;
   grid-template-columns: repeat(3, 1fr);
   width: min-content;
-  margin-top: 2vmin;
+  margin-top: 0.75em;
 }
 
 @media (max-width: 125vh) {
@@ -185,10 +185,6 @@ main {
 
   .background-right {
     display: none;
-  }
-
-  .link-container {
-    width: 50vw;
   }
 }
 
