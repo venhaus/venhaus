@@ -15,7 +15,7 @@ var TxtRotate = function(el, toRotate, period) {
 };
 
 TxtRotate.prototype.tick = function() {
-    if (window.innerWidth.valueOf() / window.innerHeight.valueOf() <= 1.25) {
+    if ((window.innerWidth.valueOf() / window.innerHeight.valueOf() <= 1.25) || window.innerWidth < 1030) {
         this.el.innerHTML = "Paul Venhaus.";
         var that = this;
     } else {
@@ -48,6 +48,7 @@ TxtRotate.prototype.tick = function() {
             this.loopNum++;
             delta = 500;
         }
+        this.el.innerHTML = "secretly a robot.";
     }
     setTimeout(function() {
         that.tick();
