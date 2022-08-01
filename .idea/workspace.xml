@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="Nicer handling of link spacing">
+    <list default="true" id="76070981-d78e-4953-83b0-0264dda450fe" name="Default" comment="More media queries for better adjustment to different viewports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,17 +45,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/venhaus/code/venhaus",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.CSS"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/venhaus/code/venhaus&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.CSS&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -146,7 +147,9 @@
       <workItem from="1640359184173" duration="9247000" />
       <workItem from="1640529234691" duration="58000" />
       <workItem from="1640698998349" duration="1490000" />
-      <workItem from="1659220154672" duration="5348000" />
+      <workItem from="1659220154672" duration="5522000" />
+      <workItem from="1659300548706" duration="7000" />
+      <workItem from="1659305023844" duration="15965000" />
     </task>
     <task id="LOCAL-00001" summary="Implement somewhat responsive redesign (still dependent on bootstrap)">
       <created>1638030331043</created>
@@ -232,7 +235,42 @@
       <option name="project" value="LOCAL" />
       <updated>1659225128798</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Base link spacing on em instead of vw/vh">
+      <created>1659225636746</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1659225636746</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Improve image loading">
+      <created>1659342811872</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1659342811872</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add dark mode">
+      <created>1659342910614</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1659342910614</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Use em font sizing">
+      <created>1659343023274</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1659343023274</updated>
+    </task>
+    <task id="LOCAL-00017" summary="More media queries for better adjustment to different viewports">
+      <created>1659345953568</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1659345953568</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +300,12 @@
     <MESSAGE value="Flip full-size / responsive css" />
     <MESSAGE value="Make portrait smaller, remove sass, improve link display" />
     <MESSAGE value="Nicer handling of link spacing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nicer handling of link spacing" />
+    <MESSAGE value="Base link spacing on em instead of vw/vh" />
+    <MESSAGE value="Improve image loading" />
+    <MESSAGE value="Add dark mode" />
+    <MESSAGE value="Use em font sizing" />
+    <MESSAGE value="More media queries for better adjustment to different viewports" />
+    <option name="LAST_COMMIT_MESSAGE" value="More media queries for better adjustment to different viewports" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

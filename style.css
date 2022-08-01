@@ -30,8 +30,6 @@
   --caret-color-light: var(--accent-color-light);
   --caret-color-dark: var(--accent-color-dark);
   --caret-color: var(--caret-color-light);
-
-  --sidebar-ratio: 33.5%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -140,11 +138,10 @@ main {
 }
 
 .header {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.6em;
 }
 
 .content {
-  width: 70%;
   height: 100%;
 }
 
@@ -170,7 +167,7 @@ main {
 
 .side-portrait {
   height: 100%;
-  width: var(--sidebar-ratio);
+  width: 33.5%;
   right: 0;
   top: 0;
   position: fixed;
@@ -182,6 +179,7 @@ main {
 
 .side-portrait img {
   height: 75%;
+  transition: height 500ms ease;
 }
 
 .icon-row {
@@ -196,7 +194,55 @@ main {
   margin-top: 0.75em;
 }
 
-@media (max-width: 125vh) and (max-width: 1030px) {
+/* Low height */
+@media (max-height: 420px) {
+  .background-left {
+    background-color: var(--main-background-color);
+  }
+
+  .main-background-container {
+    filter: none;
+  }
+}
+
+/* Up to mid-height */
+@media (max-height: 650px) {
+  .side-portrait img {
+    height: 85%;
+  }
+}
+
+/* Small screen landscape */
+@media (max-width: 930px) {
+  .side-portrait {
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .main-background-large {
+    display: none;
+  }
+
+  .main-background-small {
+    display: block;
+  }
+
+  .main-background-container {
+    width: 100%;
+  }
+
+  .background-left {
+    width: 100%;
+  }
+
+  .background-right {
+    display: none;
+  }
+}
+
+/* Square-ish */
+@media (max-width: 125vh) {
   .side-portrait {
     display: none;
     align-items: flex-end;
@@ -228,6 +274,7 @@ main {
   }
 }
 
+/* Portrait */
 @media (max-width: 75vh) {
   h1 {
     font-size: 18vmin;
