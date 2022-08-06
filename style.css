@@ -241,8 +241,8 @@ main {
   }
 }
 
-/* Square-ish */
-@media (max-width: 125vh) {
+/* Square */
+@media (max-width: 100vh) {
   .side-portrait {
     display: none;
     align-items: flex-end;
