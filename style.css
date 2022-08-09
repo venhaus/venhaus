@@ -30,6 +30,9 @@
   --caret-color-light: var(--accent-color-light);
   --caret-color-dark: var(--accent-color-dark);
   --caret-color: var(--caret-color-light);
+
+
+  --profile-picture-small-height-factor: 0.9;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -178,8 +181,7 @@ main {
 }
 
 .side-portrait img {
-  height: 75%;
-  transition: height 500ms ease;
+  height: clamp(calc(650px * var(--profile-picture-small-height-factor)), 75vh, 75vh);
 }
 
 .icon-row {
@@ -208,7 +210,7 @@ main {
 /* Up to mid-height */
 @media (max-height: 650px) {
   .side-portrait img {
-    height: 85%;
+    height: calc(var(--profile-picture-small-height-factor) * 100%);
   }
 }
 
