@@ -23,6 +23,10 @@
   --button-text-color-dark: #19191c;
   --button-text-color: var(--button-text-color-light);
 
+  --tr-color-light: #000;
+  --tr-color-dark: #fff;
+  --tr-color: var(--tr-color-light);
+
   --profile-background-color-light: #262626;
   --profile-background-color-dark: #1a1a1a;
   --profile-background-color: var(--profile-background-color-light);
@@ -31,6 +35,9 @@
   --caret-color-dark: var(--accent-color-dark);
   --caret-color: var(--caret-color-light);
 
+  --tr-logo-filter-light: invert(1);
+  --tr-logo-filter-dark: none;
+  --tr-logo-filter: var(--tr-logo-filter-light);
 
   --profile-picture-small-height-factor: 0.9;
 }
@@ -43,8 +50,11 @@
     --main-background-color: var(--main-background-color-dark);
     --accent-color: var(--accent-color-dark);
     --button-text-color: var(--button-text-color-dark);
+    --tr-color: var(--tr-color-dark);
     --profile-background-color: var(--profile-background-color-dark);
     --caret-color: var(--caret-color-dark);
+
+    --tr-logo-filter: var(--tr-logo-filter-dark);
   }
 }
 
@@ -104,14 +114,16 @@ h2 {
 p {
   line-height: 1.5em;
   margin: 0;
-}
-
-p, a {
   font-family: 'Titillium Web', sans-serif;
   font-size: 1.31em;
 }
 
 a {
+  text-decoration: none;
+  color: black;
+}
+
+.link-container > a {
   --a-text-height: 2em;
   text-decoration: none;
   text-align: center;
@@ -124,10 +136,23 @@ a {
   color: var(--button-text-color);
   white-space: nowrap;
   transition: background-color 150ms ease;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.31em;
 }
 
-a:hover {
+.link-container > a:hover {
   background-color: var(--button-hover-color);
+}
+
+.tr-logo {
+  width: 15px;
+  height: 15px;
+  filter: var(--tr-logo-filter);
+}
+
+.employer {
+  font-family: 'Barlow', sans-serif;
+  color: var(--tr-color);
 }
 
 main {
