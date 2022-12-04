@@ -215,7 +215,7 @@ main {
 
 .link-container {
   display: grid;
-  column-gap: 1.5em;
+  column-gap: min(1.5em, 2.5vw);
   grid-template-columns: repeat(3, 1fr);
   width: min-content;
   margin-top: 0.75em;
@@ -311,12 +311,17 @@ main {
     font-size: 10vmin;
   }
 
-  p, a {
+  p {
     font-size: 4vmin;
   }
 
-  .link-container {
-    width: 80%;
+  .link-container > a {
+    font-size: 4.5vmin;
+  }
+
+  .tr-logo {
+    width: 3.2vmin;
+    height: 3.2vmin;
   }
 }
 
