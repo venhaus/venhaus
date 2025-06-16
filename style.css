@@ -23,10 +23,6 @@
   --button-text-color-dark: #19191c;
   --button-text-color: var(--button-text-color-light);
 
-  --tr-color-light: #000;
-  --tr-color-dark: #fff;
-  --tr-color: var(--tr-color-light);
-
   --profile-background-color-light: #262626;
   --profile-background-color-dark: #1a1a1a;
   --profile-background-color: var(--profile-background-color-light);
@@ -34,10 +30,6 @@
   --caret-color-light: var(--accent-color-light);
   --caret-color-dark: var(--accent-color-dark);
   --caret-color: var(--caret-color-light);
-
-  --tr-logo-filter-light: invert(1);
-  --tr-logo-filter-dark: none;
-  --tr-logo-filter: var(--tr-logo-filter-light);
 
   --profile-picture-small-height-factor: 0.9;
 }
@@ -50,11 +42,8 @@
     --main-background-color: var(--main-background-color-dark);
     --accent-color: var(--accent-color-dark);
     --button-text-color: var(--button-text-color-dark);
-    --tr-color: var(--tr-color-dark);
     --profile-background-color: var(--profile-background-color-dark);
     --caret-color: var(--caret-color-dark);
-
-    --tr-logo-filter: var(--tr-logo-filter-dark);
   }
 }
 
@@ -144,17 +133,6 @@ a {
   background-color: var(--button-hover-color);
 }
 
-.tr-logo {
-  width: 15px;
-  height: 15px;
-  filter: var(--tr-logo-filter);
-}
-
-.employer {
-  font-family: 'Barlow', sans-serif;
-  color: var(--tr-color);
-}
-
 main {
   margin: 0 5vw;
   position: fixed;
@@ -195,7 +173,7 @@ main {
 
 .side-portrait {
   height: 100%;
-  width: 33.5%;
+  max-width: 33.3%;
   right: 0;
   top: 0;
   position: fixed;
@@ -317,11 +295,6 @@ main {
 
   .link-container > a {
     font-size: 4.5vmin;
-  }
-
-  .tr-logo {
-    width: 3.2vmin;
-    height: 3.2vmin;
   }
 }
 
