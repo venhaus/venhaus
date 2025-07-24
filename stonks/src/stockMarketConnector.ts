@@ -1,6 +1,5 @@
-export async function getStockPrice(): Promise<number | null> {
+export async function getStockPrice(symbol: string): Promise<number | null> {
   const apiKey = "d219ns1r01qkdupifgo0d219ns1r01qkdupifgog";
-  const symbol = "AAPL";
   const url = `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${apiKey}`;
 
   try {
@@ -12,7 +11,7 @@ export async function getStockPrice(): Promise<number | null> {
     // The current price is in the 'c' field according to finnhub.io docs
     return typeof data.c === 'number' ? data.c : null;
   } catch (error) {
-    console.error('Error fetching Apple stock price:', error);
+    console.error(`Error fetching ${symbol} stock price:`, error);
     return null;
   }
 }
