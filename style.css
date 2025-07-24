@@ -1,5 +1,5 @@
 :root {
-  --main-text-color-light: #023E73;
+  --main-text-color-light: #734B43;
   --main-text-color-dark: #CEAFAB;
   --main-text-color: var(--main-text-color-light);
 
@@ -11,11 +11,11 @@
   --button-hover-color-dark: #7AA3D0;
   --button-hover-color: var(--button-hover-color-light);
 
-  --main-background-color-light: #F2BFAC;
+  --main-background-color-light: #F2E9E4;
   --main-background-color-dark: #183152;
   --main-background-color: var(--main-background-color-light);
 
-  --accent-color-light: #D99066;
+  --accent-color-light: #A63429;
   --accent-color-dark: #6389BA;
   --accent-color: var(--accent-color-light);
 
@@ -23,7 +23,7 @@
   --button-text-color-dark: #19191c;
   --button-text-color: var(--button-text-color-light);
 
-  --profile-background-color-light: #262626;
+  --profile-background-color-light: #09090D;
   --profile-background-color-dark: #1a1a1a;
   --profile-background-color: var(--profile-background-color-light);
 

@@ -1,0 +1,18 @@
+export async function getStockPrice(): Promise<number | null> {
+  const apiKey = "d219ns1r01qkdupifgo0d219ns1r01qkdupifgog";
+  const symbol = "AAPL";
+  const url = `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${apiKey}`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    // The current price is in the 'c' field according to finnhub.io docs
+    return typeof data.c === 'number' ? data.c : null;
+  } catch (error) {
+    console.error('Error fetching Apple stock price:', error);
+    return null;
+  }
+}
