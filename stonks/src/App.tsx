@@ -1,57 +1,106 @@
-import { useState } from 'react';
-import { getStockPrice } from './stockMarketConnector'
+import { useEffect, useState } from 'react';
+import { getStockPrices } from './stockMarketConnector';
+import { getStoredSymbols, addSymbol as storeSymbol, setStoredSymbols } from './localStorageManager';
 
 function App() {
-  const [stockPrice, setStockPrice] = useState<number | null>(null);
   const [symbol, setSymbol] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
+  const [stockPrices, setStockPrices] = useState<Record<string, number | null>>({});
+  const [listLoading, setListLoading] = useState<boolean>(false);
+  const [listError, setListError] = useState<string>("");
 
-  const handleFetchPrice = async () => {
-    setLoading(true);
-    setError("");
-    setStockPrice(null);
-    try {
-      const price = await getStockPrice(symbol.trim().toUpperCase());
-      if (price === null) {
-        setError("Could not fetch price. Check the symbol and try again.");
-      }
-      setStockPrice(price);
-    } catch {
-      setError("Error fetching stock price.");
-    } finally {
-      setLoading(false);
+  useEffect(() => {
+    const storedSymbols = getStoredSymbols();
+    if (storedSymbols.length > 0) {
+      setListLoading(true);
+      setListError("");
+      getStockPrices(storedSymbols)
+        .then(prices => setStockPrices(prices))
+        .catch(() => setListError("Error fetching stock prices."))
+        .finally(() => setListLoading(false));
+    } else {
+      setStockPrices({});
     }
+  }, []);
+
+  const handleAddStock = async () => {
+    const newStockSymbol = symbol.trim().toUpperCase();
+    if (!newStockSymbol || newStockSymbol in stockPrices) return;
+    storeSymbol(newStockSymbol);
+    setSymbol("");
+    setListLoading(true);
+    setListError("");
+
+    try {
+      const stockPrice = await getStockPrices([newStockSymbol]);
+      setStockPrices(prev => ({ ...prev, ...stockPrice }));
+    } catch {
+      setListError("Error fetching stock price for " + newStockSymbol);
+    } finally {
+      setListLoading(false);
+    }
+  };
+
+  const handleRemoveFromList = (symbol: string) => {
+    const updatedSymbolList = Object.keys(stockPrices).filter(s => s !== symbol);
+    setStoredSymbols(updatedSymbolList);
+    setStockPrices(prev => {
+      const copy = { ...prev };
+      delete copy[symbol];
+      return copy;
+    });
   };
 
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow text-center">
       <h2 className="text-2xl font-bold mb-6">Stock Price Checker</h2>
-      <div className="flex items-center justify-center gap-2">
+      <h3 className="text-xl font-semibold mb-4">My Stock List</h3>
+      <div className="flex items-center justify-center gap-2 mb-4">
         <input
           type="text"
           value={symbol}
           onChange={e => setSymbol(e.target.value)}
-          placeholder="Enter stock symbol (e.g. AAPL)"
-          className="border border-gray-300 rounded px-3 py-2 text-lg w-2/3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          placeholder="Add stock symbol (e.g. MSFT)"
+          className="border border-gray-300 rounded px-3 py-2 text-lg w-2/3 focus:outline-none focus:ring-2 focus:ring-green-400"
         />
         <button
-          onClick={handleFetchPrice}
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-lg"
-          disabled={loading || !symbol.trim()}
+          onClick={handleAddStock}
+          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-lg"
+          disabled={!symbol.trim() || (symbol.trim().toUpperCase() in stockPrices)}
         >
-          {loading ? 'Loading...' : 'Confirm'}
+          Add
         </button>
       </div>
-      {error || stockPrice !== null &&
-      <div className="mt-4">
-        {error && <span className="text-red-600">{error}</span>}
-        {stockPrice !== null && !error && (
-          <span className="font-medium">Current price for <b>{symbol.trim().toUpperCase()}</b>: ${stockPrice}</span>
-        )}
-      </div>}
+      {listError && <div className="text-red-600 mb-2">{listError}</div>}
+      <ul className="mt-2">
+        {stockPrices?.length === 0 && <li className="text-gray-500">No stocks added yet.</li>}
+        {Object.keys(stockPrices).map(symbol => (
+          <li key={symbol} className="flex items-center justify-between py-2 border-b last:border-b-0">
+            <span className="font-mono">{symbol}</span>
+            <span>
+              {listLoading ? (
+                <span className="text-gray-400">Loading...</span>
+              ) : (
+                stockPrices[symbol] !== undefined ? (
+                  stockPrices[symbol] !== null ? (
+                    <span className="text-green-700 font-medium">${stockPrices[symbol]}</span>
+                  ) : (
+                    <span className="text-red-600">N/A</span>
+                  )
+                ) : null
+              )}
+            </span>
+            <button
+              onClick={() => handleRemoveFromList(symbol)}
+              className="ml-4 px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-xs"
+              title="Remove"
+            >
+              Remove
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
