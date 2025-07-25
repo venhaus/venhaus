@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getStockPrices } from './stockMarketConnector';
 import { getStoredSymbols, addSymbol as storeSymbol, setStoredSymbols } from './localStorageManager';
+import { StockList } from './StockList';
 
 function App() {
   const [symbol, setSymbol] = useState<string>("");
@@ -71,34 +72,13 @@ function App() {
         </button>
       </div>
       {listError && <div className="text-red-600 mb-2">{listError}</div>}
-      <ul className="mt-2">
-        {stockPrices?.length === 0 && <li className="text-gray-500">No stocks added yet.</li>}
-        {Object.keys(stockPrices).map(symbol => (
-          <li key={symbol} className="flex items-center justify-between py-2 border-b last:border-b-0">
-            <span className="font-mono">{symbol}</span>
-            <span>
-              {listLoading ? (
-                <span className="text-gray-400">Loading...</span>
-              ) : (
-                stockPrices[symbol] !== undefined ? (
-                  stockPrices[symbol] !== null ? (
-                    <span className="text-green-700 font-medium">${stockPrices[symbol]}</span>
-                  ) : (
-                    <span className="text-red-600">N/A</span>
-                  )
-                ) : null
-              )}
-            </span>
-            <button
-              onClick={() => handleRemoveFromList(symbol)}
-              className="ml-4 px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-xs"
-              title="Remove"
-            >
-              Remove
-            </button>
-          </li>
-        ))}
-      </ul>
+      {Object.keys(stockPrices).length > 0 && (
+        <StockList
+          stockPrices={stockPrices}
+          listLoading={listLoading}
+          onRemove={handleRemoveFromList}
+        />
+      )}
     </div>
   );
 }
