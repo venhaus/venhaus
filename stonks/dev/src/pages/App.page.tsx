@@ -103,22 +103,20 @@ export function App() {
           </Button>
         </form>
         {listError && <div className="text-red-600 dark:text-red-400">{listError}</div>}
+        <Alert
+          message={message}
+          alertVisible={alertVisible}
+          alertProgress={alertProgress}
+          onClose={hideAlert}
+          title="Symbol not found"
+          color="yellow"
+        />
         {getStoredSymbols().length > 0 && (
-          <>
-            <Alert
-              message={message}
-              alertVisible={alertVisible}
-              alertProgress={alertProgress}
-              onClose={hideAlert}
-              title="Symbol not found"
-              color="yellow"
-            />
-            <StockList
-              stockPrices={stockPrices}
-              listLoading={listLoading}
-              onRemove={handleRemoveFromList}
-            />
-          </>
+          <StockList
+            stockPrices={stockPrices}
+            listLoading={listLoading}
+            onRemove={handleRemoveFromList}
+          />
         )}
       </div>
     </div>
