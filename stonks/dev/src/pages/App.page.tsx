@@ -1,14 +1,27 @@
 import { useEffect, useState } from 'react';
-import { getStockPrices } from '../connectors/stockMarketConnector';
+import { getStockPrice, getStockPrices } from '../connectors/stockMarketConnector';
 import { getStoredSymbols, addSymbol as storeSymbol, setStoredSymbols } from '../connectors/localStorageManager';
 import { StockList } from '../components/StockList/StockList';
-import {Button, TextInput} from '@mantine/core'
+import { Button, TextInput, Alert } from '@mantine/core';
+import { useForm } from '@mantine/form';
 
 export function App() {
-  const [symbol, setSymbol] = useState<string>("");
   const [stockPrices, setStockPrices] = useState<Record<string, number | null>>({});
   const [listLoading, setListLoading] = useState<boolean>(false);
   const [listError, setListError] = useState<string>("");
+  const [symbolNotFound, setSymbolNotFound] = useState<string>("");
+
+  const form = useForm({
+    initialValues: { symbol: "" },
+    validate: {
+      symbol: (value) => {
+        const trimmed = value.trim().toUpperCase();
+        if (!trimmed) { return 'Enter a stock symbol'; }
+        if (trimmed in stockPrices) { return 'Already in list'; }
+        return null;
+      },
+    },
+  });
 
   useEffect(() => {
     const storedSymbols = getStoredSymbols();
@@ -24,19 +37,26 @@ export function App() {
     }
   }, []);
 
-  const handleAddStock = async () => {
-    const newStockSymbol = symbol.trim().toUpperCase();
-    if (!newStockSymbol || newStockSymbol in stockPrices) {return;}
-    storeSymbol(newStockSymbol);
-    setSymbol("");
+  const handleAddStock = async (values: { symbol: string }) => {
+    const newStockSymbol = values.symbol.trim().toUpperCase();
+    if (!newStockSymbol || newStockSymbol in stockPrices) { return; }
+    
+    form.reset();
     setListLoading(true);
     setListError("");
+    setSymbolNotFound("");
 
     try {
-      const stockPrice = await getStockPrices([newStockSymbol]);
-      setStockPrices(prev => ({ ...prev, ...stockPrice }));
+      const price = await getStockPrice(newStockSymbol);
+      
+      if (price === null) {
+        setSymbolNotFound(newStockSymbol);
+      } else {
+        storeSymbol(newStockSymbol);
+        setStockPrices(prev => ({ ...prev, [newStockSymbol]: price }));
+      }
     } catch {
-      setListError(`Error fetching stock price for ${  newStockSymbol}`);
+      setListError(`Error fetching stock price for ${newStockSymbol}`);
     } finally {
       setListLoading(false);
     }
@@ -56,23 +76,42 @@ export function App() {
     <div className="min-h-screen flex bg-gray-50 dark:bg-gray-900">
       <div className="w-full max-w-xl mx-auto my-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 dark:text-gray-100">
         <h1 className='text-4xl mb-4'>Watchlist</h1>
-        <div className='flex gap-2 mb-8'>
+        <form
+          className='flex gap-2 mb-8'
+          onSubmit={form.onSubmit(handleAddStock)}
+        >
           <TextInput
-            value={symbol}
-            onChange={e => setSymbol(e.target.value)}
+            {...form.getInputProps('symbol')}
             placeholder='Add stock symbol (e.g. MSFT)'
             className='w-sm dark:bg-gray-800'
             classNames={{
               input: 'dark:bg-gray-800'
             }}
+            autoComplete="off"
           />
           <Button
-            onClick={handleAddStock}
-            disabled={!symbol.trim() || (symbol.trim().toUpperCase() in stockPrices)}>
+            type="submit"
+            disabled={
+              !form.values.symbol.trim() ||
+              !!form.errors.symbol ||
+              (form.values.symbol.trim().toUpperCase() in stockPrices)
+            }
+          >
             Add
           </Button>
-        </div>
+        </form>
         {listError && <div className="text-red-600 dark:text-red-400">{listError}</div>}
+        {symbolNotFound && (
+          <Alert 
+            color="yellow" 
+            title="Symbol not found" 
+            className="mb-4"
+            onClose={() => setSymbolNotFound("")}
+            withCloseButton
+          >
+            The symbol "{symbolNotFound}" was not found. Please check the spelling and try again.
+          </Alert>
+        )}
         {getStoredSymbols().length > 0 && (
           <StockList
             stockPrices={stockPrices}
