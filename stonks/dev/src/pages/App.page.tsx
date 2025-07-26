@@ -2,14 +2,17 @@ import { useEffect, useState } from 'react';
 import { getStockPrice, getStockPrices } from '../connectors/stockMarketConnector';
 import { getStoredSymbols, addSymbol as storeSymbol, setStoredSymbols } from '../connectors/localStorageManager';
 import { StockList } from '../components/StockList/StockList';
-import { Button, TextInput, Alert } from '@mantine/core';
+import { Button, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { useAlert } from '../hooks/useAlert';
+import { Alert } from '../components/Alert/Alert';
 
 export function App() {
   const [stockPrices, setStockPrices] = useState<Record<string, number | null>>({});
   const [listLoading, setListLoading] = useState<boolean>(false);
   const [listError, setListError] = useState<string>("");
-  const [symbolNotFound, setSymbolNotFound] = useState<string>("");
+
+  const { alertVisible, alertProgress, symbolNotFound, showAlert, hideAlert } = useAlert();
 
   const form = useForm({
     initialValues: { symbol: "" },
@@ -44,13 +47,12 @@ export function App() {
     form.reset();
     setListLoading(true);
     setListError("");
-    setSymbolNotFound("");
 
     try {
       const price = await getStockPrice(newStockSymbol);
       
       if (price === null) {
-        setSymbolNotFound(newStockSymbol);
+        showAlert(newStockSymbol);
       } else {
         storeSymbol(newStockSymbol);
         setStockPrices(prev => ({ ...prev, [newStockSymbol]: price }));
@@ -74,7 +76,7 @@ export function App() {
 
   return (
     <div className="min-h-screen flex bg-gray-50 dark:bg-gray-900">
-      <div className="w-full max-w-xl mx-auto my-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 dark:text-gray-100">
+      <div className="w-full max-w-xl mx-auto my-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 dark:text-gray-100 relative">
         <h1 className='text-4xl mb-4'>Watchlist</h1>
         <form
           className='flex gap-2 mb-8'
@@ -101,23 +103,20 @@ export function App() {
           </Button>
         </form>
         {listError && <div className="text-red-600 dark:text-red-400">{listError}</div>}
-        {symbolNotFound && (
-          <Alert 
-            color="yellow" 
-            title="Symbol not found" 
-            className="mb-4"
-            onClose={() => setSymbolNotFound("")}
-            withCloseButton
-          >
-            The symbol "{symbolNotFound}" was not found. Please check the spelling and try again.
-          </Alert>
-        )}
         {getStoredSymbols().length > 0 && (
-          <StockList
-            stockPrices={stockPrices}
-            listLoading={listLoading}
-            onRemove={handleRemoveFromList}
-          />
+          <>
+            <Alert
+              symbolNotFound={symbolNotFound}
+              alertVisible={alertVisible}
+              alertProgress={alertProgress}
+              onClose={hideAlert}
+            />
+            <StockList
+              stockPrices={stockPrices}
+              listLoading={listLoading}
+              onRemove={handleRemoveFromList}
+            />
+          </>
         )}
       </div>
     </div>
