@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getStockPrices } from '../connectors/stockMarketConnector';
 import { getStoredSymbols, addSymbol as storeSymbol, setStoredSymbols } from '../connectors/localStorageManager';
-import { StockList } from '@/components/StockList/StockList';
+import { StockList } from '../components/StockList/StockList';
+import {Button, TextInput} from '@mantine/core'
 
 export function App() {
   const [symbol, setSymbol] = useState<string>("");
@@ -25,7 +26,7 @@ export function App() {
 
   const handleAddStock = async () => {
     const newStockSymbol = symbol.trim().toUpperCase();
-    if (!newStockSymbol || newStockSymbol in stockPrices) return;
+    if (!newStockSymbol || newStockSymbol in stockPrices) {return;}
     storeSymbol(newStockSymbol);
     setSymbol("");
     setListLoading(true);
@@ -35,7 +36,7 @@ export function App() {
       const stockPrice = await getStockPrices([newStockSymbol]);
       setStockPrices(prev => ({ ...prev, ...stockPrice }));
     } catch {
-      setListError("Error fetching stock price for " + newStockSymbol);
+      setListError(`Error fetching stock price for ${  newStockSymbol}`);
     } finally {
       setListLoading(false);
     }
@@ -52,33 +53,34 @@ export function App() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow text-center">
-      <h2 className="text-2xl font-bold mb-6">Stock Price Checker</h2>
-      <h3 className="text-xl font-semibold mb-4">My Stock List</h3>
-      <div className="flex items-center justify-center gap-2 mb-4">
-        <input
-          type="text"
-          value={symbol}
-          onChange={e => setSymbol(e.target.value)}
-          placeholder="Add stock symbol (e.g. MSFT)"
-          className="border border-gray-300 rounded px-3 py-2 text-lg w-2/3 focus:outline-none focus:ring-2 focus:ring-green-400"
-        />
-        <button
-          onClick={handleAddStock}
-          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-lg"
-          disabled={!symbol.trim() || (symbol.trim().toUpperCase() in stockPrices)}
-        >
-          Add
-        </button>
+    <div className="min-h-screen flex bg-gray-50 dark:bg-gray-900">
+      <div className="w-full max-w-xl mx-auto my-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 dark:text-gray-100">
+        <h1 className='text-4xl mb-4'>Watchlist</h1>
+        <div className='flex gap-2 mb-8'>
+          <TextInput
+            value={symbol}
+            onChange={e => setSymbol(e.target.value)}
+            placeholder='Add stock symbol (e.g. MSFT)'
+            className='w-sm dark:bg-gray-800'
+            classNames={{
+              input: 'dark:bg-gray-800'
+            }}
+          />
+          <Button
+            onClick={handleAddStock}
+            disabled={!symbol.trim() || (symbol.trim().toUpperCase() in stockPrices)}>
+            Add
+          </Button>
+        </div>
+        {listError && <div className="text-red-600 dark:text-red-400">{listError}</div>}
+        {getStoredSymbols().length > 0 && (
+          <StockList
+            stockPrices={stockPrices}
+            listLoading={listLoading}
+            onRemove={handleRemoveFromList}
+          />
+        )}
       </div>
-      {listError && <div className="text-red-600 mb-2">{listError}</div>}
-      {Object.keys(stockPrices).length > 0 && (
-        <StockList
-          stockPrices={stockPrices}
-          listLoading={listLoading}
-          onRemove={handleRemoveFromList}
-        />
-      )}
     </div>
   );
 }

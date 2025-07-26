@@ -1,4 +1,5 @@
 import React from "react";
+import { CloseButton, Grid, Skeleton, Tooltip } from '@mantine/core';
 
 export type StockListProps = {
   stockPrices: Record<string, number | null>;
@@ -6,35 +7,52 @@ export type StockListProps = {
   onRemove: (symbol: string) => void;
 };
 
+const symbolCols = 4;
+const priceCols = 7;
+const removeCols = 1;
+
 export function StockList({ stockPrices, listLoading, onRemove }: StockListProps) {
   return (
-    <div className="mt-2 grid grid-cols-3 gap-x-2 text-left">
-      <div className="font-semibold text-gray-700 bg-gray-100 rounded-t px-2 py-2">Stock symbol</div>
-      <div className="font-semibold text-gray-700 bg-gray-100 rounded-t px-2 py-2">Price</div>
-      <div className="bg-gray-100 rounded-t px-2 py-2"><span className="sr-only">Remove</span></div>
-      {Object.keys(stockPrices).sort().map(symbol => (
+    <Grid align="center">
+      <Grid.Col span={symbolCols}><span style={{fontWeight: 'bold'}}>Stock symbol</span></Grid.Col>
+      <Grid.Col span={priceCols}><span style={{fontWeight: 'bold'}}>Price</span></Grid.Col>
+      <Grid.Col span={removeCols}/>
+      { listLoading ? <>
+      <SkeletonCols />
+      <SkeletonCols />
+      <SkeletonCols />
+      <SkeletonCols />
+      </> : Object.keys(stockPrices).sort().map(symbol => (
         <React.Fragment key={symbol}>
-          <div className="font-mono flex items-center px-2 py-2">{symbol}</div>
-          <div className="flex items-center px-2 py-2">
-            {listLoading ? (
-              <span className="text-gray-400">Loading...</span>
-            ) : (
-              stockPrices[symbol] != null ? (
-                <span className="font-medium">${stockPrices[symbol]!.toFixed(2)}</span>
-              ) : null
-            )}
-          </div>
-          <div className="flex items-center px-2 py-2">
-            <button
+          <Grid.Col span={symbolCols}>{symbol}</Grid.Col>
+          <Grid.Col span={priceCols}>
+            {stockPrices[symbol] != null ? `$ ${stockPrices[symbol]!.toFixed(2)}` :  <Skeleton height={8} />}
+          </Grid.Col>
+          <Grid.Col span={removeCols}>
+            <Tooltip label='Remove'>
+            <CloseButton
               onClick={() => onRemove(symbol)}
-              className="ml-4 px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-xs"
-              title="Remove"
-            >
-              Remove
-            </button>
-          </div>
+             />
+             </Tooltip>
+          </Grid.Col>
         </React.Fragment>
       ))}
-    </div>
+      </Grid>
   );
+}
+
+function SkeletonCols() {
+  return (
+    <>
+      <Grid.Col span={symbolCols} style={{lineHeight: 'normal'}}>
+        <Skeleton height={8} />
+      </Grid.Col>
+      <Grid.Col span={priceCols} style={{lineHeight: 'normal'}}>
+        <Skeleton height={8} />
+      </Grid.Col>
+      <Grid.Col span={removeCols} style={{lineHeight: 'normal'}}>
+        <Skeleton height={8} />
+      </Grid.Col>
+    </>
+)
 }
