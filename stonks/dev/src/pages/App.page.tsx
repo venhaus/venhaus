@@ -12,7 +12,7 @@ export function App() {
   const [listLoading, setListLoading] = useState<boolean>(false);
   const [listError, setListError] = useState<string>("");
 
-  const { alertVisible, alertProgress, message, showAlert, hideAlert } = useAlert();
+  const { alertVisible, message, showAlert, hideAlert } = useAlert();
 
   const form = useForm({
     initialValues: { symbol: "" },
@@ -106,7 +106,6 @@ export function App() {
         <Alert
           message={message}
           alertVisible={alertVisible}
-          alertProgress={alertProgress}
           onClose={hideAlert}
           title="Symbol not found"
           color="yellow"
