@@ -12,7 +12,7 @@ export function App() {
   const [listLoading, setListLoading] = useState<boolean>(false);
   const [listError, setListError] = useState<string>("");
 
-  const { alertVisible, alertProgress, symbolNotFound, showAlert, hideAlert } = useAlert();
+  const { alertVisible, alertProgress, message, showAlert, hideAlert } = useAlert();
 
   const form = useForm({
     initialValues: { symbol: "" },
@@ -52,7 +52,7 @@ export function App() {
       const price = await getStockPrice(newStockSymbol);
       
       if (price === null) {
-        showAlert(newStockSymbol);
+        showAlert(`The symbol "${newStockSymbol}" was not found. Please check the spelling and try again.`);
       } else {
         storeSymbol(newStockSymbol);
         setStockPrices(prev => ({ ...prev, [newStockSymbol]: price }));
@@ -106,10 +106,12 @@ export function App() {
         {getStoredSymbols().length > 0 && (
           <>
             <Alert
-              symbolNotFound={symbolNotFound}
+              message={message}
               alertVisible={alertVisible}
               alertProgress={alertProgress}
               onClose={hideAlert}
+              title="Symbol not found"
+              color="yellow"
             />
             <StockList
               stockPrices={stockPrices}

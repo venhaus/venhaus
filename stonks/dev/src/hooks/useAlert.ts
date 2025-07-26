@@ -3,18 +3,18 @@ import { useState, useEffect } from 'react';
 interface UseAlertReturn {
   alertVisible: boolean;
   alertProgress: number;
-  symbolNotFound: string;
-  showAlert: (symbol: string) => void;
+  message: string;
+  showAlert: (message: string) => void;
   hideAlert: () => void;
 }
 
 export function useAlert(): UseAlertReturn {
-  const [symbolNotFound, setSymbolNotFound] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
   const [alertProgress, setAlertProgress] = useState<number>(100);
   const [alertVisible, setAlertVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    if (symbolNotFound) {
+    if (message) {
       setAlertVisible(true);
       setAlertProgress(100);
       
@@ -30,7 +30,7 @@ export function useAlert(): UseAlertReturn {
       const hideTimer = setTimeout(() => {
         setAlertVisible(false);
         setTimeout(() => {
-          setSymbolNotFound("");
+          setMessage("");
           setAlertProgress(100);
         }, 500);
       }, duration);
@@ -40,16 +40,16 @@ export function useAlert(): UseAlertReturn {
         clearInterval(progressTimer);
       };
     }
-  }, [symbolNotFound]);
+  }, [message]);
 
-  const showAlert = (symbol: string) => {
-    setSymbolNotFound(symbol);
+  const showAlert = (message: string) => {
+    setMessage(message);
   };
 
   const hideAlert = () => {
     setAlertVisible(false);
     setTimeout(() => {
-      setSymbolNotFound("");
+      setMessage("");
       setAlertProgress(100);
     }, 500);
   };
@@ -57,7 +57,7 @@ export function useAlert(): UseAlertReturn {
   return {
     alertVisible,
     alertProgress,
-    symbolNotFound,
+    message,
     showAlert,
     hideAlert,
   };
