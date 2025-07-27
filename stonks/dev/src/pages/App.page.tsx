@@ -44,6 +44,7 @@ export function App() {
     const newStockSymbol = values.symbol.trim().toUpperCase();
     if (!newStockSymbol || newStockSymbol in stockPrices) { return; }
     
+    hideAlert();
     form.reset();
     setListLoading(true);
     setListError("");
