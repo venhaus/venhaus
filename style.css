@@ -127,10 +127,10 @@ a {
   transition: background-color 150ms ease;
   font-family: 'Titillium Web', sans-serif;
   font-size: 1.31em;
-}
 
-.link-container > a:hover {
-  background-color: var(--button-hover-color);
+  &:hover {
+    background-color: var(--button-hover-color);
+  }
 }
 
 main {
@@ -181,10 +181,10 @@ main {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-}
 
-.side-portrait img {
-  height: clamp(calc(650px * var(--profile-picture-small-height-factor)), 75vh, 75vh);
+  & img {
+    height: clamp(calc(650px * var(--profile-picture-small-height-factor)), 75vh, 75vh);
+  }
 }
 
 .icon-row {
