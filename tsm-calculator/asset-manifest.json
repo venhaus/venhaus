@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/tsm-calculator/static/css/main.a5e3fb7e.css",
-    "main.js": "/tsm-calculator/static/js/main.0cfe3233.js",
+    "main.js": "/tsm-calculator/static/js/main.b510af58.js",
     "index.html": "/tsm-calculator/index.html",
     "main.a5e3fb7e.css.map": "/tsm-calculator/static/css/main.a5e3fb7e.css.map",
-    "main.0cfe3233.js.map": "/tsm-calculator/static/js/main.0cfe3233.js.map"
+    "main.b510af58.js.map": "/tsm-calculator/static/js/main.b510af58.js.map"
   },
   "entrypoints": [
     "static/css/main.a5e3fb7e.css",
-    "static/js/main.0cfe3233.js"
+    "static/js/main.b510af58.js"
   ]
 }
