@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tsm-calculator/static/css/main.3bc07152.css",
+    "main.js": "/tsm-calculator/static/js/main.408a225c.js",
+    "index.html": "/tsm-calculator/index.html",
+    "main.3bc07152.css.map": "/tsm-calculator/static/css/main.3bc07152.css.map",
+    "main.408a225c.js.map": "/tsm-calculator/static/js/main.408a225c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3bc07152.css",
+    "static/js/main.408a225c.js"
+  ]
+}
